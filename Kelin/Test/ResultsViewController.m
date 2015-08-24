@@ -1,6 +1,6 @@
 //
 //  ResultsViewController.m
-//  K
+//  Kelin
 //
 //  Created by Didara Pernebayeva on 07.07.15.
 //  Copyright (c) 2015 Didara Pernebayeva. All rights reserved.

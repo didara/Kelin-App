@@ -138,8 +138,8 @@
 		45DBB8311B4FDA21005FE6F5 /* Secrets@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Secrets@3x.png"; sourceTree = "<group>"; };
 		45DBB8331B4FDA27005FE6F5 /* Test@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Test@3x.png"; sourceTree = "<group>"; };
 		45DBB8391B4FE97B005FE6F5 /* Oval 21@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 21@3x.png"; sourceTree = "<group>"; };
-		45DD80381B664DD200E7B3C7 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
-		45DD80391B664DD200E7B3C7 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
+		45DD80381B664DD200E7B3C7 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Test/Question.h; sourceTree = "<group>"; };
+		45DD80391B664DD200E7B3C7 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Test/Question.m; sourceTree = "<group>"; };
 		45E2E5591B68F5B000950052 /* Edit Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Edit Button@2x.png"; sourceTree = "<group>"; };
 		45E2E55B1B68F6BB00950052 /* Arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow@2x.png"; sourceTree = "<group>"; };
 		45E2E55F1B68F9DE00950052 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
@@ -176,6 +176,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		20C36B141B8B73E700D3E3D6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				45DD80381B664DD200E7B3C7 /* Question.h */,
+				45DD80391B664DD200E7B3C7 /* Question.m */,
+			);
+			name = Models;
+			sourceTree = "<group>";
+		};
 		451464131B6B43CC00245937 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
@@ -192,8 +201,6 @@
 		4514641A1B6B520000245937 /* Test */ = {
 			isa = PBXGroup;
 			children = (
-				45DD80381B664DD200E7B3C7 /* Question.h */,
-				45DD80391B664DD200E7B3C7 /* Question.m */,
 				45D08C291B42AE1F00C05A99 /* TestViewController.h */,
 				45D08C2A1B42AE1F00C05A99 /* TestViewController.m */,
 				45029AF51B4BB41500E4B8AC /* ResultsViewController.h */,
@@ -288,6 +295,7 @@
 		45BB36F61B414DF80079AF05 /* Kelin */ = {
 			isa = PBXGroup;
 			children = (
+				20C36B141B8B73E700D3E3D6 /* Models */,
 				4514641A1B6B520000245937 /* Test */,
 				4514641B1B6B526900245937 /* Recipes */,
 				4514641C1B6B52C600245937 /* Dictionary */,
