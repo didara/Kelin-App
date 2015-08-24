@@ -16,7 +16,6 @@
 @property (weak, nonatomic) IBOutlet UIButton *dictButton;
 @property (weak, nonatomic) IBOutlet UIButton *secretsButton;
 
-
 @end
 
 @implementation CategoryViewController
@@ -26,27 +25,20 @@
     [self.navigationController.navigationBar
 setTitleTextAttributes:@{NSForegroundColorAttributeName : [UIColor whiteColor]}];
      [ self.navigationController.navigationBar setBarTintColor :[UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1] /*#d81e35*/];
-    
-    
-   /* [[self.testButton imageView] setContentMode:UIViewContentModeScaleAspectFill];
-    [[self.foodButton imageView] setContentMode:UIViewContentModeScaleAspectFill];
-    [[self.dictButton imageView] setContentMode:UIViewContentModeScaleAspectFill];
-    [[self.secretsButton imageView] setContentMode:UIViewContentModeScaleAspectFill];
-    */
-}
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
 }
 
--(IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
+- (void)viewWillAppear:(BOOL)animated {
+    [super viewWillAppear:animated];
+    self.navigationController.navigationBarHidden = NO;
+}
+
+- (IBAction)prepareForUnwind:(UIStoryboardSegue *)segue {
 }
 
 - (IBAction)logoutButtonPressed:(UIBarButtonItem *)sender {
-[PFUser logOutInBackgroundWithBlock:^ (NSError *error) {
+    [PFUser logOutInBackgroundWithBlock:^ (NSError *error) {
         [self dismissViewControllerAnimated:YES completion:nil];
-    }]; 
-
+    }];
 }
 
 @end

@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *progressIndicatorLabel;
 
 @property (nonatomic) NSMutableArray *questions;
+@property (nonatomic) NSUInteger processedQuestionsCount;
 @property (nonatomic) NSInteger correctAnswersCount;
 @property (nonatomic) NSInteger currentQuestion;
 @property (nonatomic) NSString *correctAnswer;
@@ -38,6 +39,8 @@
     self.currentQuestion = 0;
     [self enableAll];
     [self downloadData];
+    self.percentage = 0.756f;
+    [self performSegueWithIdentifier:@"showResults" sender:nil];
 }
 
 - (void)downloadData {
@@ -47,22 +50,26 @@
     
     PFQuery *query = [PFQuery queryWithClassName:@"Question"];
     
-    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error){
-        if (!error){
-            [PFObject pinAllInBackground:objects];
-            for (Question *question in objects) {
-                PFQuery *optionQuery = [PFQuery queryWithClassName:@"Option"];
-                [optionQuery whereKey:@"questionId" equalTo:question];
-                
-                NSArray *list = [optionQuery findObjects];
-                question.options = list;
-            }
-            
-            self.questions = [objects mutableCopy];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *questions, NSError *questionsError) {
+        if (!questionsError) {
+            [PFObject pinAllInBackground:questions];
+            self.questions = [questions mutableCopy];
             [self randomizeArray:self.questions];
             
-            [HUD dismissAnimated:YES];
-            [self showCurrentQuestion];
+            for (Question *question in questions) {
+                PFQuery *optionQuery = [PFQuery queryWithClassName:@"Option"];
+                [optionQuery whereKey:@"questionId" equalTo:question];
+                [optionQuery findObjectsInBackgroundWithBlock:^(NSArray *options, NSError *optionsError) {
+                    if (!optionsError) {
+                        question.options = options;
+                        self.processedQuestionsCount++;
+                        if (self.processedQuestionsCount == questions.count) {
+                            [HUD dismissAnimated:YES];
+                            [self showCurrentQuestion];
+                        }
+                    }
+                }];
+            }
         }
     }];
 }
@@ -113,7 +120,7 @@
     self.currentQuestion++;
     // Try not to use static numbers, instead use variables (the count of the questions array in this case)
     if (self.currentQuestion >= self.questions.count) {
-        [self performSegueWithIdentifier:@"getResultsSegue" sender:nil];
+        [self performSegueWithIdentifier:@"showResults" sender:nil];
     } else {
         self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
         [self showCurrentQuestion];
@@ -143,8 +150,8 @@
     [self performSelector:@selector(displayNextQuestion) withObject:nil afterDelay:0.3f];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
-    if ([segue.identifier isEqualToString:@"getResultsSegue"]){
+- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+    if ([segue.identifier isEqualToString:@"showResults"]){
         ResultsViewController *controller = segue.destinationViewController;
         controller.percentage = self.percentage;
     }

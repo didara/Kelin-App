@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		1DE0D9BB28890743D4827993 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A8261AD1B4F37ED32009D2 /* libPods.a */; };
+		20C36B1D1B8B838000D3E3D6 /* UIFont+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B1C1B8B838000D3E3D6 /* UIFont+Sizes.m */; };
+		20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */; };
 		45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45029AF61B4BB41500E4B8AC /* ResultsViewController.m */; };
 		451464161B6B43F000245937 /* SecretPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451464151B6B43F000245937 /* SecretPostTableViewCell.m */; };
 		4541419F1B53AD9D00524FA9 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541419E1B53AD9D00524FA9 /* TableCell.m */; };
@@ -74,6 +76,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		20C36B151B8B7FBB00D3E3D6 /* AYMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = AYMacros.h; path = images/AYMacros.h; sourceTree = "<group>"; };
+		20C36B1B1B8B838000D3E3D6 /* UIFont+Sizes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIFont+Sizes.h"; sourceTree = "<group>"; };
+		20C36B1C1B8B838000D3E3D6 /* UIFont+Sizes.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIFont+Sizes.m"; sourceTree = "<group>"; };
+		20C36B1E1B8B876900D3E3D6 /* UIView+AYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AYUtils.h"; sourceTree = "<group>"; };
+		20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AYUtils.m"; sourceTree = "<group>"; };
 		45029AF51B4BB41500E4B8AC /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		45029AF61B4BB41500E4B8AC /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		451464141B6B43F000245937 /* SecretPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretPostTableViewCell.h; sourceTree = "<group>"; };
@@ -138,8 +145,8 @@
 		45DBB8311B4FDA21005FE6F5 /* Secrets@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Secrets@3x.png"; sourceTree = "<group>"; };
 		45DBB8331B4FDA27005FE6F5 /* Test@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Test@3x.png"; sourceTree = "<group>"; };
 		45DBB8391B4FE97B005FE6F5 /* Oval 21@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Oval 21@3x.png"; sourceTree = "<group>"; };
-		45DD80381B664DD200E7B3C7 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = Question.h; path = Test/Question.h; sourceTree = "<group>"; };
-		45DD80391B664DD200E7B3C7 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = Question.m; path = Test/Question.m; sourceTree = "<group>"; };
+		45DD80381B664DD200E7B3C7 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
+		45DD80391B664DD200E7B3C7 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
 		45E2E5591B68F5B000950052 /* Edit Button@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Edit Button@2x.png"; sourceTree = "<group>"; };
 		45E2E55B1B68F6BB00950052 /* Arrow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Arrow@2x.png"; sourceTree = "<group>"; };
 		45E2E55F1B68F9DE00950052 /* done.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = done.png; sourceTree = "<group>"; };
@@ -176,13 +183,35 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		20C36B141B8B73E700D3E3D6 /* Models */ = {
+		20C36B161B8B7FC200D3E3D6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
-				45DD80381B664DD200E7B3C7 /* Question.h */,
-				45DD80391B664DD200E7B3C7 /* Question.m */,
+				20C36B151B8B7FBB00D3E3D6 /* AYMacros.h */,
+				20C36B1B1B8B838000D3E3D6 /* UIFont+Sizes.h */,
+				20C36B1C1B8B838000D3E3D6 /* UIFont+Sizes.m */,
+				20C36B1E1B8B876900D3E3D6 /* UIView+AYUtils.h */,
+				20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */,
 			);
-			name = Models;
+			name = Helpers;
+			sourceTree = "<group>";
+		};
+		20C36B171B8B807700D3E3D6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				45DBB8221B4FB6DE005FE6F5 /* BeginningViewController.h */,
+				45DBB8231B4FB6DE005FE6F5 /* BeginningViewController.m */,
+				45BB36FE1B414DF80079AF05 /* ViewController.h */,
+				45BB36FF1B414DF80079AF05 /* ViewController.m */,
+				45DBB8281B4FBD9E005FE6F5 /* RegisterViewController.h */,
+				45DBB8291B4FBD9E005FE6F5 /* RegisterViewController.m */,
+				45D08C261B4287F700C05A99 /* CategoryViewController.h */,
+				45D08C271B4287FF00C05A99 /* CategoryViewController.m */,
+				4514641A1B6B520000245937 /* Test */,
+				4514641B1B6B526900245937 /* Recipes */,
+				4514641C1B6B52C600245937 /* Dictionary */,
+				451464131B6B43CC00245937 /* Secrets */,
+			);
+			name = Controllers;
 			sourceTree = "<group>";
 		};
 		451464131B6B43CC00245937 /* Secrets */ = {
@@ -201,6 +230,8 @@
 		4514641A1B6B520000245937 /* Test */ = {
 			isa = PBXGroup;
 			children = (
+				45DD80381B664DD200E7B3C7 /* Question.h */,
+				45DD80391B664DD200E7B3C7 /* Question.m */,
 				45D08C291B42AE1F00C05A99 /* TestViewController.h */,
 				45D08C2A1B42AE1F00C05A99 /* TestViewController.m */,
 				45029AF51B4BB41500E4B8AC /* ResultsViewController.h */,
@@ -295,23 +326,12 @@
 		45BB36F61B414DF80079AF05 /* Kelin */ = {
 			isa = PBXGroup;
 			children = (
-				20C36B141B8B73E700D3E3D6 /* Models */,
-				4514641A1B6B520000245937 /* Test */,
-				4514641B1B6B526900245937 /* Recipes */,
-				4514641C1B6B52C600245937 /* Dictionary */,
-				451464131B6B43CC00245937 /* Secrets */,
+				20C36B171B8B807700D3E3D6 /* Controllers */,
+				20C36B161B8B7FC200D3E3D6 /* Helpers */,
 				457429F11B60B672001DF544 /* Images */,
 				45BB36FB1B414DF80079AF05 /* AppDelegate.h */,
 				45BB36FC1B414DF80079AF05 /* AppDelegate.m */,
 				45BB37011B414DF80079AF05 /* Main.storyboard */,
-				45DBB8221B4FB6DE005FE6F5 /* BeginningViewController.h */,
-				45DBB8231B4FB6DE005FE6F5 /* BeginningViewController.m */,
-				45BB36FE1B414DF80079AF05 /* ViewController.h */,
-				45BB36FF1B414DF80079AF05 /* ViewController.m */,
-				45DBB8281B4FBD9E005FE6F5 /* RegisterViewController.h */,
-				45DBB8291B4FBD9E005FE6F5 /* RegisterViewController.m */,
-				45D08C261B4287F700C05A99 /* CategoryViewController.h */,
-				45D08C271B4287FF00C05A99 /* CategoryViewController.m */,
 				45DA8CD31B58FFB400C82362 /* Images.xcassets */,
 				45BB37061B414DF80079AF05 /* LaunchScreen.xib */,
 				45BB36F71B414DF80079AF05 /* Supporting Files */,
@@ -417,7 +437,7 @@
 				TargetAttributes = {
 					45BB36F31B414DF80079AF05 = {
 						CreatedOnToolsVersion = 6.3.2;
-						DevelopmentTeam = P993BJWE94;
+						DevelopmentTeam = X5764AN68D;
 					};
 					45BB370C1B414DF80079AF05 = {
 						CreatedOnToolsVersion = 6.3.2;
@@ -545,6 +565,7 @@
 			files = (
 				451464161B6B43F000245937 /* SecretPostTableViewCell.m in Sources */,
 				454141AF1B54B91D00524FA9 /* SecondTableCell.m in Sources */,
+				20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */,
 				45D08C281B4287FF00C05A99 /* CategoryViewController.m in Sources */,
 				45AE26A31B5E1A0600245732 /* DetailTableViewController.m in Sources */,
 				45AE26A01B5D1D2C00245732 /* DictionaryViewController.m in Sources */,
@@ -553,6 +574,7 @@
 				45DBB8241B4FB6DE005FE6F5 /* BeginningViewController.m in Sources */,
 				45DBB82A1B4FBD9E005FE6F5 /* RegisterViewController.m in Sources */,
 				45BB36FD1B414DF80079AF05 /* AppDelegate.m in Sources */,
+				20C36B1D1B8B838000D3E3D6 /* UIFont+Sizes.m in Sources */,
 				454141A21B53B6AB00524FA9 /* TableViewController.m in Sources */,
 				45E2E5631B68FF1900950052 /* SecretsViewController.m in Sources */,
 				45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */,

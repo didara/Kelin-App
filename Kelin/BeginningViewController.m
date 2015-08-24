@@ -11,6 +11,7 @@
 #import <Parse/Parse.h>
 
 @interface BeginningViewController ()
+
 @property (weak, nonatomic) IBOutlet UIButton *ButtonVoiti;
 @property (weak, nonatomic) IBOutlet UIButton *ButtonZareg;
 
