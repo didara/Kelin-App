@@ -10,5 +10,7 @@
 #import "TestViewController.h"
 
 @interface ResultsViewController : UIViewController
-@property (nonatomic) int percentage;
+
+@property (nonatomic) CGFloat percentage;
+
 @end

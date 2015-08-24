@@ -27,15 +27,11 @@
     self.instagramPoster = [MGInstagram new];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    [self.navigationController popToViewController:[self.navigationController.viewControllers objectAtIndex:2] animated:YES];
-    // Dispose of any resources that can be recreated.
-}
-
 - (void) viewWillAppear:(BOOL)animated{
-    self.resultsLabel.text = [NSString stringWithFormat:@"%i", self.percentage];
-    _resultsLabel.font = [UIFont openSansFontOfSize:120];
+    self.resultsLabel.text = [NSString stringWithFormat:@"%f", roundf(self.percentage * 100 + 0.5f)];
+    
+    self.resultsLabel.font = [UIFont openSansFontOfSize:120];
+    
     if (self.percentage == 100) {
       _levelLabel.font =[UIFont openSansFontOfSize:20];
         self.levelLabel.text = @"Вы - настоящая келiн!!!";

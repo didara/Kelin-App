@@ -14,17 +14,24 @@
 @dynamic answer;
 @synthesize options = _options;
 
-+ (void) load{
-    [self registerSubclass];
-}
-+ (NSString *) parseClassName{
-    return @"Question";
-}
+#pragma mark Getters and setters
+
 - (void) setOptions:(NSArray *)options{
     _options = options;
 }
+
 - (NSArray *) options{
     return _options;
+}
+
+#pragma mark PFSubclassing
+
++ (void) load{
+    [self registerSubclass];
+}
+
++ (NSString *) parseClassName{
+    return @"Question";
 }
 
 @end

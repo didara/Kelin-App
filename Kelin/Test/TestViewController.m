@@ -146,8 +146,7 @@
 - (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
     if ([segue.identifier isEqualToString:@"getResultsSegue"]){
         ResultsViewController *controller = segue.destinationViewController;
-        // Convert the decimal percentage to a whole number
-        controller.percentage = ceil(self.percentage * 100);
+        controller.percentage = self.percentage;
     }
 }
 
