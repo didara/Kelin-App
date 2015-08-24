@@ -14,16 +14,6 @@
 
 + (CGFloat)smallTextFontSize {
     if (IS_IPHONE_6P) {
-        return 16;
-    } else if (IS_IPHONE_6) {
-        return 15;
-    } else {
-        return 14;
-    }
-}
-
-+ (CGFloat)mediumTextFontSize {
-    if (IS_IPHONE_6P) {
         return 18;
     } else if (IS_IPHONE_6) {
         return 17;
@@ -32,13 +22,23 @@
     }
 }
 
-+ (CGFloat)largeTextFontSize {
++ (CGFloat)mediumTextFontSize {
     if (IS_IPHONE_6P) {
         return 20;
     } else if (IS_IPHONE_6) {
         return 19;
     } else {
         return 18;
+    }
+}
+
++ (CGFloat)largeTextFontSize {
+    if (IS_IPHONE_6P) {
+        return 26;
+    } else if (IS_IPHONE_6) {
+        return 24;
+    } else {
+        return 22;
     }
 }
 

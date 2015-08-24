@@ -12,6 +12,8 @@
 #import "Question.h"
 #import <Parse.h>
 #import "ResultsViewController.h"
+#import "UIFont+Sizes.h"
+#import <UIFont+OpenSans.h>
 
 @interface TestViewController ()
 
@@ -33,15 +35,24 @@
 
 @implementation TestViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    self.questionLabel.font = [UIFont openSansFontOfSize:[UIFont largeTextFontSize]];
+    self.questionLabel.textColor = [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1] /*#d81e35*/;
+    for (UIButton *button in @[self.optionAButton, self.optionBButton, self.optionCButton, self.optionDButton]) {
+        button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+    }
+    self.progressIndicatorLabel.font = [UIFont openSansFontOfSize:[UIFont largeTextFontSize]];
     
     self.currentQuestion = 0;
     [self enableAll];
     [self downloadData];
-    self.percentage = 0.756f;
-    [self performSegueWithIdentifier:@"showResults" sender:nil];
 }
+
+#pragma mark Private
 
 - (void)downloadData {
     JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
@@ -77,7 +88,6 @@
 - (void)showCurrentQuestion {
     Question *question = self.questions[self.currentQuestion];
     self.questionLabel.text = question.text;
-    self.questionLabel.textColor = [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1] /*#d81e35*/;
     self.correctAnswer = question.answer;
    
     NSMutableArray *options = [question.options mutableCopy];
@@ -141,6 +151,8 @@
     }
 }
 
+#pragma mark Actions
+
 - (IBAction)optionButtonPressed:(UIButton *)sender {
     // As you can see, there is no need for four separate methods, one is just enough
     [self resetButtons];
@@ -150,7 +162,7 @@
     [self performSelector:@selector(displayNextQuestion) withObject:nil afterDelay:0.3f];
 }
 
-- (void) prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
+- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     if ([segue.identifier isEqualToString:@"showResults"]){
         ResultsViewController *controller = segue.destinationViewController;
         controller.percentage = self.percentage;

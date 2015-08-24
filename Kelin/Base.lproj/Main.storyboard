@@ -14,9 +14,9 @@
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
             <string>OpenSans-Light</string>
-            <string>OpenSans-Light</string>
         </mutableArray>
         <mutableArray key="OpenSans-Regular.ttf">
+            <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
             <string>OpenSans</string>
@@ -242,7 +242,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="0wU-cr-de9" kind="push" identifier="enterFoodSegue" id="zAY-kz-xVT"/>
+                                    <segue destination="0wU-cr-de9" kind="push" identifier="goToRecepies" id="zAY-kz-xVT"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isn-zo-E20">
@@ -251,7 +251,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="HfO-h2-wHz" kind="push" identifier="enterTestSegue" id="l4N-bq-CFp"/>
+                                    <segue destination="HfO-h2-wHz" kind="push" identifier="goToTest" id="l4N-bq-CFp"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-rn-Hxg">
@@ -260,7 +260,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="J3L-tK-Tq2" kind="push" identifier="secretsSegue" id="dYV-bZ-br4"/>
+                                    <segue destination="J3L-tK-Tq2" kind="push" identifier="goToSecrets" id="dYV-bZ-br4"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvX-dw-4eB">
@@ -269,7 +269,7 @@
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
-                                    <segue destination="Go0-OI-xgq" kind="push" identifier="DictionarySegue" id="fpr-Hl-aBG"/>
+                                    <segue destination="Go0-OI-xgq" kind="push" identifier="goToDictionary" id="fpr-Hl-aBG"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -565,21 +565,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Lcp-KN-xZi" userLabel="Percentage View">
                                 <rect key="frame" x="16" y="60" width="288" height="310"/>
                                 <subviews>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="100" translatesAutoresizingMaskIntoConstraints="NO" id="oDC-S8-Sgb" userLabel="Percentage Label">
-                                        <rect key="frame" x="0.0" y="0.0" width="288" height="140"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="100" textAlignment="center" lineBreakMode="clip" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="oDC-S8-Sgb" userLabel="Percentage Label">
+                                        <rect key="frame" x="0.0" y="0.0" width="288" height="200"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="140" id="mCS-Ct-Og3"/>
+                                            <constraint firstAttribute="height" constant="200" id="mCS-Ct-Og3"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="170"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="69f-wJ-8dN" userLabel="Level Label">
-                                        <rect key="frame" x="0.0" y="150" width="288" height="100"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="69f-wJ-8dN" userLabel="Level Label">
+                                        <rect key="frame" x="0.0" y="210" width="288" height="100"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="100" id="NgR-5l-A6U"/>
                                         </constraints>
-                                        <fontDescription key="fontDescription" name="OpenSans-Light" family="Open Sans" pointSize="30"/>
+                                        <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="30"/>
                                         <color key="textColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
@@ -646,6 +646,8 @@
                         <outlet property="contentView" destination="Lcp-KN-xZi" id="D0j-AG-sMF"/>
                         <outlet property="levelLabel" destination="69f-wJ-8dN" id="KMo-hH-b7h"/>
                         <outlet property="percentageLabel" destination="oDC-S8-Sgb" id="0Wx-1t-GEx"/>
+                        <outlet property="shareButton" destination="vja-MP-rPp" id="ZUJ-Jz-XU7"/>
+                        <outlet property="unwindButton" destination="VAR-sP-RLA" id="zwZ-ba-kNi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOw-rl-pG8" userLabel="First Responder" sceneMemberID="firstResponder"/>

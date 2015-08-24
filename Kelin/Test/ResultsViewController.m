@@ -14,13 +14,15 @@
 #import <UIFont+OpenSans.h>
 #import "UIView+AYUtils.h"
 
-static CGSize const kResultsSharingViewSize = {500, 500};
+static CGSize const kResultsSharingViewSize = {400, 400};
 
 @interface ResultsViewController ()
 
 @property (weak, nonatomic) IBOutlet UILabel *percentageLabel;
 @property (weak, nonatomic) IBOutlet UILabel *levelLabel;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (weak, nonatomic) IBOutlet UIButton *unwindButton;
+@property (weak, nonatomic) IBOutlet UIButton *shareButton;
 
 @property (nonatomic) MGInstagram *instagramPoster;
 
@@ -28,36 +30,55 @@ static CGSize const kResultsSharingViewSize = {500, 500};
 
 @implementation ResultsViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.instagramPoster = [MGInstagram new];
+    for (UIButton *button in @[self.unwindButton, self.shareButton]) {
+        button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+    }
     
-    NSMutableAttributedString *percentageText = [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", (long)roundf(self.percentage * 100 + 0.5f)] attributes:@{ NSFontAttributeName: self.percentageLabel.font }] mutableCopy];
+    self.levelLabel.font = [UIFont openSansLightFontOfSize:26];
+    NSMutableAttributedString *percentageText = [[[NSAttributedString alloc] initWithString:[NSString stringWithFormat:@"%ld", (long)roundf(self.percentage * 100 + 0.5f)] attributes:@{ NSFontAttributeName: [UIFont openSansFontOfSize:200] }] mutableCopy];
     [percentageText appendAttributedString:[[NSAttributedString alloc] initWithString:@"%" attributes:@{ NSFontAttributeName: [UIFont openSansLightFontOfSize:40] }]];
     self.percentageLabel.attributedText = percentageText;
-    
-    if (self.percentage == 100) {
+    if (self.percentage == 1) {
         self.levelLabel.text = @"Вы - настоящая келiн!!!";
-    } else if (self.percentage > 91) {
+    } else if (self.percentage > 0.91f) {
         self.levelLabel.text = @"Вы Келин для всего Казахстана";
-    } else if (self.percentage > 83) {
+        self.levelLabel.font = [UIFont openSansLightFontOfSize:28];
+    } else if (self.percentage > 0.83f) {
         self.levelLabel.text = @"Вы Келин всех регионов, кроме ЮКО";
-    } else if (self.percentage > 75) {
+        self.levelLabel.font = [UIFont openSansLightFontOfSize:26];
+    } else if (self.percentage > 0.75f) {
         self.levelLabel.text = @"Вы Келин Северного, Центрального и Восточного Казахстана";
-    } else if (self.percentage > 68) {
+        self.levelLabel.font = [UIFont openSansLightFontOfSize:22];
+    } else if (self.percentage > 0.68f) {
         self.levelLabel.text = @"Вы Келин Северного и Восточного Казахстана";
-    } else if (self.percentage > 50){
+        self.levelLabel.font = [UIFont openSansLightFontOfSize:24];
+    } else if (self.percentage > 0.5f){
         self.levelLabel.text = @"Вы Келин Северного Казахстана";
-    }   else if (self.percentage < 50) {
+        self.levelLabel.font = [UIFont openSansLightFontOfSize:28];
+    }   else if (self.percentage < 0.5f) {
         self.levelLabel.text = @"Неплохо, можно лучше! :)";
     }
+    self.contentView.alpha = 0;
+}
+
+- (void)viewDidAppear:(BOOL)animated {
+    [super viewDidAppear:animated];
+    [UIView animateWithDuration:0.4f animations:^{
+        self.contentView.alpha = 1;
+    }];
 }
 
 - (void)viewWillLayoutSubviews {
     [super viewWillLayoutSubviews];
     self.percentageLabel.top = 0;
     [self.levelLabel sizeToFit];
-    self.levelLabel.width = self.contentView.width;
+    self.levelLabel.width = self.contentView.width - 20;
+    self.levelLabel.left = 10;
     self.levelLabel.top = self.percentageLabel.bottom + 10;
     
     CGFloat totalHeight = self.levelLabel.bottom;
@@ -71,6 +92,8 @@ static CGSize const kResultsSharingViewSize = {500, 500};
     self.navigationController.navigationBarHidden = YES;
 }
 
+#pragma mark Actions
+
 - (IBAction)shareButtonTapped:(UIButton *)sender {
     UIImage *image = [self convertViewToImage:[self viewForSharing]];
     if ([MGInstagram isAppInstalled]) {
@@ -80,34 +103,51 @@ static CGSize const kResultsSharingViewSize = {500, 500};
     }
 }
 
+#pragma mark Private
+
 - (UIView *)viewForSharing {
     UIView *viewForSharing = [[UIView alloc] initWithFrame:CGRectMake(0, 0, kResultsSharingViewSize.width, kResultsSharingViewSize.height)];
-    UILabel *percentageLabel = [[UILabel alloc] initWithFrame:percentageLabel.frame];
+    viewForSharing.backgroundColor = self.view.backgroundColor;
+    UILabel *percentageLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, viewForSharing.width - 20, 200)];
     percentageLabel.font = self.percentageLabel.font;
+    percentageLabel.textColor = [UIColor whiteColor];
+    percentageLabel.textAlignment = NSTextAlignmentCenter;
     percentageLabel.attributedText = self.percentageLabel.attributedText;
-    [viewForSharing addSubview:viewForSharing];
+    percentageLabel.minimumScaleFactor = 0.5f;
+    percentageLabel.adjustsFontSizeToFitWidth = YES;
+    [viewForSharing addSubview:percentageLabel];
     
-    UILabel *levelLabel = [UILabel new];
-    levelLabel.font = self.levelLabel.font;
+    UILabel *levelLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, percentageLabel.bottom + 10, viewForSharing.width - 20, viewForSharing.height - percentageLabel.bottom - 20)];
+    levelLabel.font = [UIFont openSansLightFontOfSize:26];
+    levelLabel.textColor = [UIColor whiteColor];
+    levelLabel.text = self.levelLabel.text;
+    levelLabel.textAlignment = NSTextAlignmentCenter;
+    levelLabel.numberOfLines = 0;
+    levelLabel.minimumScaleFactor = 0.5f;
+    levelLabel.adjustsFontSizeToFitWidth = YES;
     [levelLabel sizeToFit];
-    levelLabel.width = viewForSharing.width;
-    levelLabel.top = percentageLabel.bottom + 10;
+    levelLabel.width = viewForSharing.width - 20;
+    levelLabel.left = 10;
     [viewForSharing addSubview:levelLabel];
     
-    CGFloat totalHeight = levelLabel.bottom;
-    for (UILabel *label in @[levelLabel,percentageLabel]) {
-        label.top += (viewForSharing.height - totalHeight)/2;
-    }
-    
     UILabel *watermarkLabel = [UILabel new];
-    watermarkLabel.text = @"Kelin";
+    watermarkLabel.text = @"#kelinapp";
+    watermarkLabel.textColor = [UIColor whiteColor];
+    watermarkLabel.font = self.levelLabel.font;
     [watermarkLabel sizeToFit];
     watermarkLabel.right = viewForSharing.width - 10;
     watermarkLabel.bottom = viewForSharing.height - 10;
     [viewForSharing addSubview:watermarkLabel];
     
+    CGFloat totalHeight = levelLabel.bottom;
+    for (UILabel *label in @[levelLabel,percentageLabel]) {
+        label.top += (watermarkLabel.top - totalHeight)/2;
+    }
+    
     return viewForSharing;
 }
+
+#pragma mark Helpers
 
 - (UIImage *)convertViewToImage:(UIView *)view {
     UIImage *image;
