@@ -7,75 +7,61 @@
 //
 
 #import "DetailTableViewController.h"
-#import "SecondTableCell.h"
-#import "Parse/Parse.h"
+
+#import <UIFont+OpenSans.h>
+#import "UIFont+Sizes.h"
 
 @interface DetailTableViewController ()
+
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
+@property (strong, nonatomic) IBOutlet UILabel *basicInformationLabel;
 
 @end
 
 @implementation DetailTableViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = self.DetailModule[0][@"intro"];
+    self.navigationItem.title = self.info[0][@"intro"];
     
-    self.tableView.estimatedRowHeight = 200.f;
+    self.tableView.estimatedRowHeight = 200;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
+    
+    self.imageView.image = self.info[1];
+    self.basicInformationLabel.text = self.info [2][@"firstInformation"];
+    self.basicInformationLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
+#pragma mark UITableViewDataSource
 
-
-#pragma mark - Table view data source
-- (NSInteger) tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     return 1;
 }
 
-
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
     return 2 ;
 }
 
-- (NSString *) tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
+- (NSString *)tableView:(UITableView *)tableView titleForHeaderInSection:(NSInteger)section{
     if (section == 0) {
-        return @"ИНГРИДИЕНТЫ";
-    }
-    if (section == 1) {
+        return @"ИНГРЕДИЕНТЫ";
+    } else {
         return @"ПРИГОТОВЛЕНИЕ";
     }
-    return @"ИНГРЕДИЕНТЫ";
 }
-    // get the text for indexPath
   
--(UITableViewCell *) tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    static NSString *CellIdentifier = @"TableCell";
- 
-   SecondTableCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
-    if (cell == nil) {
-        cell = [[SecondTableCell alloc] initWithStyle:UITableViewCellStyleDefault
-                                      reuseIdentifier:CellIdentifier];
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+   UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+    cell.textLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+    cell.textLabel.numberOfLines = 0;
+    if (indexPath.section == 0){
+        cell.textLabel.text = self.info[3][@"ingridients"];
+    } else {
+        cell.textLabel.text= self.info[4][@"cook"];
     }
-  
-    if(indexPath.section == 0){
-        cell.ImageView.image = self.DetailModule[1];
-        cell.basicInformationLabel.text = self.DetailModule [2][@"firstInformation"];
-        cell.textLabel.text = self.DetailModule [3] [@"ingridients"];
-        cell.textLabel.numberOfLines = 0;
-    }
-    else if (indexPath.section == 1){
-        
-      //  cell.ingridientsLabel.text = @"Blah blah blah";
-        cell.textLabel.text= self.DetailModule[4][@"cook"];
-        cell.textLabel.numberOfLines = 0;
-    }
-    
     return cell;
 }
-
-
 
 @end

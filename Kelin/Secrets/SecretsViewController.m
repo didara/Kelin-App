@@ -7,12 +7,14 @@
 //
 
 #import "SecretsViewController.h"
+
 #import <Parse/Parse.h>
 #import "JGProgressHUD.h"
 
-
 @interface SecretsViewController ()
+
 @property (weak, nonatomic) IBOutlet UITextView *stories;
+
 @end
 
 @implementation SecretsViewController
@@ -27,10 +29,6 @@
     [self.stories becomeFirstResponder];
 }
 
-- (void)didReceiveMemoryWarning {
-    [super didReceiveMemoryWarning];
-    // Dispose of any resources that can be recreated.
-}
 - (IBAction)DoneButtonPressed:(UIBarButtonItem *)sender {
     JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     HUD.textLabel.text = @"Отправляется";
@@ -41,17 +39,12 @@
         if (succeeded) {
             [HUD dismissAnimated:YES];
             [self.navigationController popViewControllerAnimated:YES];
-            
-            
-
             NSLog(@"saved %@", secret);
         } else {
             NSLog(@"error");
         }
     }];
 }
-
-
 
 
 @end

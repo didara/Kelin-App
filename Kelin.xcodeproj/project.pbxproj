@@ -12,9 +12,8 @@
 		20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */; };
 		45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45029AF61B4BB41500E4B8AC /* ResultsViewController.m */; };
 		451464161B6B43F000245937 /* SecretPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451464151B6B43F000245937 /* SecretPostTableViewCell.m */; };
-		4541419F1B53AD9D00524FA9 /* TableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541419E1B53AD9D00524FA9 /* TableCell.m */; };
-		454141A21B53B6AB00524FA9 /* TableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141A11B53B6AB00524FA9 /* TableViewController.m */; };
-		454141AF1B54B91D00524FA9 /* SecondTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141AE1B54B91D00524FA9 /* SecondTableCell.m */; };
+		4541419F1B53AD9D00524FA9 /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */; };
+		454141A21B53B6AB00524FA9 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */; };
 		45742A001B611352001DF544 /* DictionaryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 457429FF1B611352001DF544 /* DictionaryCard.m */; };
 		45AE26A01B5D1D2C00245732 /* DictionaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE269F1B5D1D2C00245732 /* DictionaryViewController.m */; };
 		45AE26A31B5E1A0600245732 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE26A21B5E1A0600245732 /* DetailTableViewController.m */; };
@@ -57,12 +56,10 @@
 		45029AF61B4BB41500E4B8AC /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
 		451464141B6B43F000245937 /* SecretPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretPostTableViewCell.h; sourceTree = "<group>"; };
 		451464151B6B43F000245937 /* SecretPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretPostTableViewCell.m; sourceTree = "<group>"; };
-		4541419D1B53AD9D00524FA9 /* TableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableCell.h; sourceTree = "<group>"; };
-		4541419E1B53AD9D00524FA9 /* TableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableCell.m; sourceTree = "<group>"; };
-		454141A01B53B6AB00524FA9 /* TableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TableViewController.h; sourceTree = "<group>"; };
-		454141A11B53B6AB00524FA9 /* TableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TableViewController.m; sourceTree = "<group>"; };
-		454141AD1B54B91D00524FA9 /* SecondTableCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecondTableCell.h; sourceTree = "<group>"; };
-		454141AE1B54B91D00524FA9 /* SecondTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableCell.m; sourceTree = "<group>"; };
+		4541419D1B53AD9D00524FA9 /* RecipesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewCell.h; sourceTree = "<group>"; };
+		4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
+		454141A01B53B6AB00524FA9 /* RecipesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewController.h; sourceTree = "<group>"; };
+		454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewController.m; sourceTree = "<group>"; };
 		457429FE1B611352001DF544 /* DictionaryCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryCard.h; sourceTree = "<group>"; };
 		457429FF1B611352001DF544 /* DictionaryCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryCard.m; sourceTree = "<group>"; };
 		45AE269E1B5D1D2C00245732 /* DictionaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryViewController.h; sourceTree = "<group>"; };
@@ -197,12 +194,10 @@
 		4514641B1B6B526900245937 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				454141AD1B54B91D00524FA9 /* SecondTableCell.h */,
-				454141AE1B54B91D00524FA9 /* SecondTableCell.m */,
-				4541419D1B53AD9D00524FA9 /* TableCell.h */,
-				4541419E1B53AD9D00524FA9 /* TableCell.m */,
-				454141A01B53B6AB00524FA9 /* TableViewController.h */,
-				454141A11B53B6AB00524FA9 /* TableViewController.m */,
+				4541419D1B53AD9D00524FA9 /* RecipesTableViewCell.h */,
+				4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */,
+				454141A01B53B6AB00524FA9 /* RecipesTableViewController.h */,
+				454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */,
 				45AE26A11B5E19FB00245732 /* DetailTableViewController.h */,
 				45AE26A21B5E1A0600245732 /* DetailTableViewController.m */,
 			);
@@ -451,18 +446,17 @@
 			buildActionMask = 2147483647;
 			files = (
 				451464161B6B43F000245937 /* SecretPostTableViewCell.m in Sources */,
-				454141AF1B54B91D00524FA9 /* SecondTableCell.m in Sources */,
 				20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */,
 				45D08C281B4287FF00C05A99 /* CategoriesViewController.m in Sources */,
 				45AE26A31B5E1A0600245732 /* DetailTableViewController.m in Sources */,
 				45AE26A01B5D1D2C00245732 /* DictionaryViewController.m in Sources */,
 				45BB37001B414DF80079AF05 /* LogInViewController.m in Sources */,
-				4541419F1B53AD9D00524FA9 /* TableCell.m in Sources */,
+				4541419F1B53AD9D00524FA9 /* RecipesTableViewCell.m in Sources */,
 				45DBB8241B4FB6DE005FE6F5 /* AuthorizationViewController.m in Sources */,
 				45DBB82A1B4FBD9E005FE6F5 /* SignUpViewController.m in Sources */,
 				45BB36FD1B414DF80079AF05 /* AppDelegate.m in Sources */,
 				20C36B1D1B8B838000D3E3D6 /* UIFont+Sizes.m in Sources */,
-				454141A21B53B6AB00524FA9 /* TableViewController.m in Sources */,
+				454141A21B53B6AB00524FA9 /* RecipesTableViewController.m in Sources */,
 				45E2E5631B68FF1900950052 /* SecretsViewController.m in Sources */,
 				45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */,
 				45742A001B611352001DF544 /* DictionaryCard.m in Sources */,

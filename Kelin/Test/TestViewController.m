@@ -30,6 +30,7 @@
 @property (nonatomic) NSInteger currentQuestion;
 @property (nonatomic) NSString *correctAnswer;
 @property (nonatomic) CGFloat percentage;
+@property (nonatomic) JGProgressHUD *HUD;
 
 @end
 
@@ -43,39 +44,41 @@
     self.questionLabel.font = [UIFont openSansFontOfSize:[UIFont largeTextFontSize]];
     self.questionLabel.textColor = [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1] /*#d81e35*/;
     for (UIButton *button in @[self.optionAButton, self.optionBButton, self.optionCButton, self.optionDButton]) {
-        button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+        button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont smallTextFontSize]];
     }
     self.progressIndicatorLabel.font = [UIFont openSansFontOfSize:[UIFont largeTextFontSize]];
     
     self.currentQuestion = 0;
     [self enableAll];
+    
+    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    self.HUD.textLabel.text = @"Келiн наливает чай";
+    [self.HUD showInView:self.view];
+    
     [self downloadData];
 }
-
 #pragma mark Private
 
 - (void)downloadData {
-    JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    HUD.textLabel.text = @"Келiн наливает чай";
-    [HUD showInView:self.view];
-    
     PFQuery *query = [PFQuery queryWithClassName:@"Question"];
     
     [query findObjectsInBackgroundWithBlock:^(NSArray *questions, NSError *questionsError) {
         if (!questionsError) {
-            [PFObject pinAllInBackground:questions];
+            //[PFObject pinAllInBackground:questions];
             self.questions = [questions mutableCopy];
             [self randomizeArray:self.questions];
+            [self.questions removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(13, self.questions.count - 13)]];
+            self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
             
-            for (Question *question in questions) {
+            for (Question *question in self.questions) {
                 PFQuery *optionQuery = [PFQuery queryWithClassName:@"Option"];
                 [optionQuery whereKey:@"questionId" equalTo:question];
                 [optionQuery findObjectsInBackgroundWithBlock:^(NSArray *options, NSError *optionsError) {
                     if (!optionsError) {
                         question.options = options;
                         self.processedQuestionsCount++;
-                        if (self.processedQuestionsCount == questions.count) {
-                            [HUD dismissAnimated:YES];
+                        if (self.processedQuestionsCount == self.questions.count) {
+                            [self.HUD dismissAnimated:YES];
                             [self showCurrentQuestion];
                         }
                     }

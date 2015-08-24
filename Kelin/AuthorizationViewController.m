@@ -9,7 +9,6 @@
 #import "AuthorizationViewController.h"
 
 #import "JGProgressHUD.h"
-#import <Parse/Parse.h>
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
 
@@ -23,13 +22,8 @@
 @implementation AuthorizationViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];
-    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                              NSFontAttributeName: [UIFont openSansFontOfSize:17] }];
-    [[UIBarButtonItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor],
-                                                              NSFontAttributeName: [UIFont openSansFontOfSize:17] } forState:UIControlStateNormal];
-    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1]] /*#d81e35*/;
-    
+    [super viewDidLoad];    
+    self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
     self.logInButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.logInButton.layer.cornerRadius = 5;
     self.signUpButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
@@ -44,13 +38,6 @@
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:animated];
     self.navigationController.navigationBarHidden = NO;
-}
-
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    if ([PFUser currentUser]) {
-        [self performSegueWithIdentifier:@"enterApp" sender:nil];
-    }
 }
 
 @end

@@ -21,42 +21,51 @@
 @property (nonatomic) NSInteger wordsSwipedCount;
 @property (weak, nonatomic) IBOutlet ZLSwipeableView *swipeableView;
 @property (weak, nonatomic) IBOutlet UILabel *numberLabel;
+@property (nonatomic) JGProgressHUD *HUD;
 
 @end
 
 @implementation DictionaryViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
     self.currentWordNumber = 0;
     self.wordsSwipedCount = 1;
     self.swipeableView.dataSource = self;
     self.swipeableView.delegate = self;
     self.swipeableView.backgroundColor = [UIColor clearColor];
-    [self dataFromParseWithLocalDataStore:YES];
+    
+    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    self.HUD.textLabel.text = @"Келiн убирается";
+    [self.HUD showInView:self.view];
+    
+    [self getDataFromParseFromLocalDataStore:YES];
 }
 
-- (void)dataFromParseWithLocalDataStore:(BOOL)localDataStore {
-    JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    HUD.textLabel.text = @"Келiн убирается";
-    [HUD showInView:self.view];
+#pragma mark Private
+
+- (void)getDataFromParseFromLocalDataStore:(BOOL)localDataStore {
     PFQuery *query = [PFQuery queryWithClassName:@"Dictionary"];
     if (localDataStore) {
         [query fromLocalDatastore];
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *words, NSError *error) {
-        [HUD dismissAnimated:YES];
         if (!error) {
             if ([words count] > 0) {
+                [self.HUD dismissAnimated:YES];
                 self.words = [words mutableCopy];
                 self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.wordsSwipedCount), @([self.words count])];
                 [self.swipeableView discardAllSwipeableViews];
                 [self.swipeableView loadNextSwipeableViewsIfNeeded];
             } else if (localDataStore) {
-                [self dataFromParseWithLocalDataStore:NO];
+                [self getDataFromParseFromLocalDataStore:NO];
             }
         } else {
-            NSLog(@"%@", error);
+            [self.HUD dismissAnimated:YES];
+            // Show error
         }
     }];
 }
@@ -81,7 +90,6 @@
         wordLabel.text = [word[@"Text"] uppercaseString];
         definitionLabel.text = word[@"Words"];
         self.currentWordNumber++;
-        
         return dictionaryCard;
     } else {
         return nil;

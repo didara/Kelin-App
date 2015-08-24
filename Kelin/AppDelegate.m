@@ -10,6 +10,7 @@
 #import <Parse/Parse.h>
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
+#import <UIFont+OpenSans.h>
 
 @interface AppDelegate ()
 
@@ -18,16 +19,30 @@
 @implementation AppDelegate
 
 
-- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
-     [[UIApplication sharedApplication] setStatusBarStyle:UIStatusBarStyleLightContent];
-    
+- (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {    
     [Fabric with:@[CrashlyticsKit]];
     [Parse enableLocalDatastore];
     // Initialize Parse.
     [Parse setApplicationId:@"vNR38KAk0ptpNa2SFHViWfOVEU1q4Qmni117ylkS"
                   clientKey:@"sXfRD29PmYcv4SWPAp2eFISYTVQ1RPyPqMDb6Q3q"];
     
+    self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    
+    if ([PFUser currentUser]) {
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"CategoriesViewController"]];
+    } else {
+        self.navigationController = [[UINavigationController alloc] initWithRootViewController:[storyboard instantiateViewControllerWithIdentifier:@"AuthorizationViewController"]];
+    }
+    [[UINavigationBar appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: [UIFont openSansFontOfSize:17] }];
+    [[UIBarButtonItem appearance] setTitleTextAttributes:@{ NSForegroundColorAttributeName: [UIColor whiteColor],
+                                                            NSFontAttributeName: [UIFont openSansFontOfSize:17] } forState:UIControlStateNormal];
+    [[UINavigationBar appearance] setBarTintColor: [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1]] /*#d81e35*/;
+    [[UINavigationBar appearance] setTintColor:[UIColor whiteColor]];
+    
+    self.window.rootViewController = self.navigationController;
+    [self.window makeKeyAndVisible];
     
     return YES;
 }
