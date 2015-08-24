@@ -16,6 +16,7 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *levelLabel;
 @property (weak, nonatomic) IBOutlet UIView *contentView;
+@property (nonatomic) MGInstagram *instagramPoster;
 
 @end
 
@@ -23,9 +24,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-   
-
-    // Do any additional setup after loading the view.
+    self.instagramPoster = [MGInstagram new];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -75,7 +74,7 @@
     UIImage *image = [self imageWithView:self.contentView];
     if ([MGInstagram isAppInstalled])
     {
-        [MGInstagram postImage:image inView:self.view];
+        [self.instagramPoster postImage:image inView:self.view];
     }
     else
     {

@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>IDESourceControlProjectFavoriteDictionaryKey</key>
+	<false/>
+	<key>IDESourceControlProjectIdentifier</key>
+	<string>74C17E90-EFD5-41BC-930F-6A3F9E10868B</string>
+	<key>IDESourceControlProjectName</key>
+	<string>Kelin</string>
+	<key>IDESourceControlProjectOriginsDictionary</key>
+	<dict>
+		<key>DFA79FF4AC89FD5646DE4E3716D86BDB234D149D</key>
+		<string>https://github.com/didara/Kelin-App.git</string>
+	</dict>
+	<key>IDESourceControlProjectPath</key>
+	<string>Kelin.xcworkspace</string>
+	<key>IDESourceControlProjectRelativeInstallPathDictionary</key>
+	<dict>
+		<key>DFA79FF4AC89FD5646DE4E3716D86BDB234D149D</key>
+		<string>..</string>
+	</dict>
+	<key>IDESourceControlProjectURL</key>
+	<string>https://github.com/didara/Kelin-App.git</string>
+	<key>IDESourceControlProjectVersion</key>
+	<integer>111</integer>
+	<key>IDESourceControlProjectWCCIdentifier</key>
+	<string>DFA79FF4AC89FD5646DE4E3716D86BDB234D149D</string>
+	<key>IDESourceControlProjectWCConfigurations</key>
+	<array>
+		<dict>
+			<key>IDESourceControlRepositoryExtensionIdentifierKey</key>
+			<string>public.vcs.git</string>
+			<key>IDESourceControlWCCIdentifierKey</key>
+			<string>DFA79FF4AC89FD5646DE4E3716D86BDB234D149D</string>
+			<key>IDESourceControlWCCName</key>
+			<string>Kelin</string>
+		</dict>
+	</array>
+</dict>
+</plist>

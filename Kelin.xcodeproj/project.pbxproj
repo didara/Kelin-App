@@ -17,7 +17,6 @@
 		454141AF1B54B91D00524FA9 /* SecondTableCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141AE1B54B91D00524FA9 /* SecondTableCell.m */; };
 		457429EC1B60A56B001DF544 /* sign-in copy 3.png in Resources */ = {isa = PBXBuildFile; fileRef = 457429EB1B60A56B001DF544 /* sign-in copy 3.png */; };
 		457429EE1B60A592001DF544 /* sign-in copy 3@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457429ED1B60A592001DF544 /* sign-in copy 3@3x.png */; };
-		457429F01B60A690001DF544 /* sign-in copy 2@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457429EF1B60A690001DF544 /* sign-in copy 2@3x.png */; };
 		457429F31B60EB99001DF544 /* instagram@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 457429F21B60EB99001DF544 /* instagram@2x.png */; };
 		45742A001B611352001DF544 /* DictionaryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 457429FF1B611352001DF544 /* DictionaryCard.m */; };
 		45742A021B61E754001DF544 /* menu-dictionary.png in Resources */ = {isa = PBXBuildFile; fileRef = 45742A011B61E754001DF544 /* menu-dictionary.png */; };
@@ -36,7 +35,7 @@
 		45BB37001B414DF80079AF05 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB36FF1B414DF80079AF05 /* ViewController.m */; };
 		45BB37031B414DF80079AF05 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 45BB37011B414DF80079AF05 /* Main.storyboard */; };
 		45BB37081B414DF80079AF05 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 45BB37061B414DF80079AF05 /* LaunchScreen.xib */; };
-		45BB37141B414DF80079AF05 /* KTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB37131B414DF80079AF05 /* KTests.m */; };
+		45BB37141B414DF80079AF05 /* KelinTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB37131B414DF80079AF05 /* KelinTests.m */; };
 		45CFA4C21B382D8D00914C49 /* voiti.png in Resources */ = {isa = PBXBuildFile; fileRef = 45CFA4C11B382D8D00914C49 /* voiti.png */; };
 		45D08C281B4287FF00C05A99 /* CategoryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D08C271B4287FF00C05A99 /* CategoryViewController.m */; };
 		45D08C2B1B42AE1F00C05A99 /* TestViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45D08C2A1B42AE1F00C05A99 /* TestViewController.m */; };
@@ -89,7 +88,6 @@
 		454141AE1B54B91D00524FA9 /* SecondTableCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecondTableCell.m; sourceTree = "<group>"; };
 		457429EB1B60A56B001DF544 /* sign-in copy 3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in copy 3.png"; sourceTree = "<group>"; };
 		457429ED1B60A592001DF544 /* sign-in copy 3@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in copy 3@3x.png"; sourceTree = "<group>"; };
-		457429EF1B60A690001DF544 /* sign-in copy 2@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "sign-in copy 2@3x.png"; sourceTree = "<group>"; };
 		457429F21B60EB99001DF544 /* instagram@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "instagram@2x.png"; sourceTree = "<group>"; };
 		457429FE1B611352001DF544 /* DictionaryCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryCard.h; sourceTree = "<group>"; };
 		457429FF1B611352001DF544 /* DictionaryCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryCard.m; sourceTree = "<group>"; };
@@ -106,7 +104,7 @@
 		45AE26A11B5E19FB00245732 /* DetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
 		45AE26A21B5E1A0600245732 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
 		45AE26A51B5E4A3700245732 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
-		45BB36F41B414DF80079AF05 /* K.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = K.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BB36F41B414DF80079AF05 /* Kelin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kelin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BB36F81B414DF80079AF05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		45BB36F91B414DF80079AF05 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		45BB36FB1B414DF80079AF05 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -115,10 +113,10 @@
 		45BB36FF1B414DF80079AF05 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		45BB37021B414DF80079AF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		45BB37071B414DF80079AF05 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
-		45BB370D1B414DF80079AF05 /* KTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		45BB370D1B414DF80079AF05 /* KelinTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = KelinTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BB37121B414DF80079AF05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		45BB37131B414DF80079AF05 /* KTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KTests.m; sourceTree = "<group>"; };
-		45BB371D1B4150580079AF05 /* podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
+		45BB37131B414DF80079AF05 /* KelinTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = KelinTests.m; sourceTree = "<group>"; };
+		45BB371D1B4150580079AF05 /* Podfile */ = {isa = PBXFileReference; lastKnownFileType = text; path = Podfile; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.ruby; };
 		45CFA4C11B382D8D00914C49 /* voiti.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = voiti.png; sourceTree = "<group>"; };
 		45D08C261B4287F700C05A99 /* CategoryViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CategoryViewController.h; sourceTree = "<group>"; };
 		45D08C271B4287FF00C05A99 /* CategoryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CategoryViewController.m; sourceTree = "<group>"; };
@@ -188,7 +186,7 @@
 				451464141B6B43F000245937 /* SecretPostTableViewCell.h */,
 				451464151B6B43F000245937 /* SecretPostTableViewCell.m */,
 			);
-			name = Secrets;
+			path = Secrets;
 			sourceTree = "<group>";
 		};
 		4514641A1B6B520000245937 /* Test */ = {
@@ -201,7 +199,7 @@
 				45029AF51B4BB41500E4B8AC /* ResultsViewController.h */,
 				45029AF61B4BB41500E4B8AC /* ResultsViewController.m */,
 			);
-			name = Test;
+			path = Test;
 			sourceTree = "<group>";
 		};
 		4514641B1B6B526900245937 /* Recipes */ = {
@@ -216,7 +214,7 @@
 				45AE26A11B5E19FB00245732 /* DetailTableViewController.h */,
 				45AE26A21B5E1A0600245732 /* DetailTableViewController.m */,
 			);
-			name = Recipes;
+			path = Recipes;
 			sourceTree = "<group>";
 		};
 		4514641C1B6B52C600245937 /* Dictionary */ = {
@@ -227,10 +225,10 @@
 				457429FE1B611352001DF544 /* DictionaryCard.h */,
 				457429FF1B611352001DF544 /* DictionaryCard.m */,
 			);
-			name = Dictionary;
+			path = Dictionary;
 			sourceTree = "<group>";
 		};
-		457429F11B60B672001DF544 /* images */ = {
+		457429F11B60B672001DF544 /* Images */ = {
 			isa = PBXGroup;
 			children = (
 				45E2E5591B68F5B000950052 /* Edit Button@2x.png */,
@@ -251,9 +249,7 @@
 				45DBB81E1B4FB562005FE6F5 /* 1st.png */,
 				45E2E56D1B6A208800950052 /* like.png */,
 				457429EB1B60A56B001DF544 /* sign-in copy 3.png */,
-				457429EF1B60A690001DF544 /* sign-in copy 2@3x.png */,
 				457429ED1B60A592001DF544 /* sign-in copy 3@3x.png */,
-				45DBB81C1B4FB47C005FE6F5 /* sign-in copy 2@3x.png */,
 				45DA8CD71B5908CC00C82362 /* cook@2x.png */,
 				454141A51B53C0BD00524FA9 /* samsa.jpg */,
 				454141A31B53C0AF00524FA9 /* beshbarmak.jpg */,
@@ -262,16 +258,18 @@
 				45DBB82D1B4FDA10005FE6F5 /* Dictionary@3x.png */,
 				45DBB8311B4FDA21005FE6F5 /* Secrets@3x.png */,
 				45DBB82F1B4FDA17005FE6F5 /* Food@3x.png */,
+				45DBB81C1B4FB47C005FE6F5 /* sign-in copy 2@3x.png */,
 			);
-			name = images;
+			name = Images;
+			path = images;
 			sourceTree = "<group>";
 		};
 		45BB36EB1B414DF80079AF05 = {
 			isa = PBXGroup;
 			children = (
-				45BB371D1B4150580079AF05 /* podfile */,
-				45BB36F61B414DF80079AF05 /* K */,
-				45BB37101B414DF80079AF05 /* KTests */,
+				45BB371D1B4150580079AF05 /* Podfile */,
+				45BB36F61B414DF80079AF05 /* Kelin */,
+				45BB37101B414DF80079AF05 /* KelinTests */,
 				45BB36F51B414DF80079AF05 /* Products */,
 				5E5E1B1ACBA99E29A8BDC2EF /* Pods */,
 				D3959682869C9343185C3187 /* Frameworks */,
@@ -281,20 +279,20 @@
 		45BB36F51B414DF80079AF05 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				45BB36F41B414DF80079AF05 /* K.app */,
-				45BB370D1B414DF80079AF05 /* KTests.xctest */,
+				45BB36F41B414DF80079AF05 /* Kelin.app */,
+				45BB370D1B414DF80079AF05 /* KelinTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		45BB36F61B414DF80079AF05 /* K */ = {
+		45BB36F61B414DF80079AF05 /* Kelin */ = {
 			isa = PBXGroup;
 			children = (
 				4514641A1B6B520000245937 /* Test */,
 				4514641B1B6B526900245937 /* Recipes */,
 				4514641C1B6B52C600245937 /* Dictionary */,
 				451464131B6B43CC00245937 /* Secrets */,
-				457429F11B60B672001DF544 /* images */,
+				457429F11B60B672001DF544 /* Images */,
 				45BB36FB1B414DF80079AF05 /* AppDelegate.h */,
 				45BB36FC1B414DF80079AF05 /* AppDelegate.m */,
 				45BB37011B414DF80079AF05 /* Main.storyboard */,
@@ -310,7 +308,7 @@
 				45BB37061B414DF80079AF05 /* LaunchScreen.xib */,
 				45BB36F71B414DF80079AF05 /* Supporting Files */,
 			);
-			path = K;
+			path = Kelin;
 			sourceTree = "<group>";
 		};
 		45BB36F71B414DF80079AF05 /* Supporting Files */ = {
@@ -319,16 +317,16 @@
 				45BB36F81B414DF80079AF05 /* Info.plist */,
 				45BB36F91B414DF80079AF05 /* main.m */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		45BB37101B414DF80079AF05 /* KTests */ = {
+		45BB37101B414DF80079AF05 /* KelinTests */ = {
 			isa = PBXGroup;
 			children = (
-				45BB37131B414DF80079AF05 /* KTests.m */,
+				45BB37131B414DF80079AF05 /* KelinTests.m */,
 				45BB37111B414DF80079AF05 /* Supporting Files */,
 			);
-			path = KTests;
+			path = KelinTests;
 			sourceTree = "<group>";
 		};
 		45BB37111B414DF80079AF05 /* Supporting Files */ = {
@@ -336,7 +334,7 @@
 			children = (
 				45BB37121B414DF80079AF05 /* Info.plist */,
 			);
-			name = "Supporting Files";
+			path = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		5E5E1B1ACBA99E29A8BDC2EF /* Pods */ = {
@@ -362,9 +360,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		45BB36F31B414DF80079AF05 /* K */ = {
+		45BB36F31B414DF80079AF05 /* Kelin */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45BB37171B414DF80079AF05 /* Build configuration list for PBXNativeTarget "K" */;
+			buildConfigurationList = 45BB37171B414DF80079AF05 /* Build configuration list for PBXNativeTarget "Kelin" */;
 			buildPhases = (
 				CBD6A2F3393E87154D4E5D58 /* Check Pods Manifest.lock */,
 				45BB36F01B414DF80079AF05 /* Sources */,
@@ -377,14 +375,14 @@
 			);
 			dependencies = (
 			);
-			name = K;
-			productName = K;
-			productReference = 45BB36F41B414DF80079AF05 /* K.app */;
+			name = Kelin;
+			productName = Kelin;
+			productReference = 45BB36F41B414DF80079AF05 /* Kelin.app */;
 			productType = "com.apple.product-type.application";
 		};
-		45BB370C1B414DF80079AF05 /* KTests */ = {
+		45BB370C1B414DF80079AF05 /* KelinTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 45BB371A1B414DF80079AF05 /* Build configuration list for PBXNativeTarget "KTests" */;
+			buildConfigurationList = 45BB371A1B414DF80079AF05 /* Build configuration list for PBXNativeTarget "KelinTests" */;
 			buildPhases = (
 				45BB37091B414DF80079AF05 /* Sources */,
 				45BB370A1B414DF80079AF05 /* Frameworks */,
@@ -395,9 +393,9 @@
 			dependencies = (
 				45BB370F1B414DF80079AF05 /* PBXTargetDependency */,
 			);
-			name = KTests;
-			productName = KTests;
-			productReference = 45BB370D1B414DF80079AF05 /* KTests.xctest */;
+			name = KelinTests;
+			productName = KelinTests;
+			productReference = 45BB370D1B414DF80079AF05 /* KelinTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -419,7 +417,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 45BB36EF1B414DF80079AF05 /* Build configuration list for PBXProject "K" */;
+			buildConfigurationList = 45BB36EF1B414DF80079AF05 /* Build configuration list for PBXProject "Kelin" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -432,8 +430,8 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				45BB36F31B414DF80079AF05 /* K */,
-				45BB370C1B414DF80079AF05 /* KTests */,
+				45BB36F31B414DF80079AF05 /* Kelin */,
+				45BB370C1B414DF80079AF05 /* KelinTests */,
 			);
 		};
 /* End PBXProject section */
@@ -471,7 +469,6 @@
 				457429EE1B60A592001DF544 /* sign-in copy 3@3x.png in Resources */,
 				457429F31B60EB99001DF544 /* instagram@2x.png in Resources */,
 				45DBB8301B4FDA17005FE6F5 /* Food@3x.png in Resources */,
-				457429F01B60A690001DF544 /* sign-in copy 2@3x.png in Resources */,
 				45DBB81D1B4FB47C005FE6F5 /* sign-in copy 2@3x.png in Resources */,
 				45742A021B61E754001DF544 /* menu-dictionary.png in Resources */,
 				4592A31F1B43C7A500D19FF8 /* Group Copy@2x.png in Resources */,
@@ -563,7 +560,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				45BB37141B414DF80079AF05 /* KTests.m in Sources */,
+				45BB37141B414DF80079AF05 /* KelinTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -572,7 +569,7 @@
 /* Begin PBXTargetDependency section */
 		45BB370F1B414DF80079AF05 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 45BB36F31B414DF80079AF05 /* K */;
+			target = 45BB36F31B414DF80079AF05 /* Kelin */;
 			targetProxy = 45BB370E1B414DF80079AF05 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -584,6 +581,7 @@
 				45BB37021B414DF80079AF05 /* Base */,
 			);
 			name = Main.storyboard;
+			path = .;
 			sourceTree = "<group>";
 		};
 		45BB37061B414DF80079AF05 /* LaunchScreen.xib */ = {
@@ -592,6 +590,7 @@
 				45BB37071B414DF80079AF05 /* Base */,
 			);
 			name = LaunchScreen.xib;
+			path = .;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -688,9 +687,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = K/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Kelin/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kelin;
 				PROVISIONING_PROFILE = "63f8e58e-cbef-4090-a668-9e862b177978";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -708,9 +707,9 @@
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
-				INFOPLIST_FILE = K/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/Kelin/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = Kelin;
 				PROVISIONING_PROFILE = "63f8e58e-cbef-4090-a668-9e862b177978";
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -728,10 +727,10 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = KTests/Info.plist;
+				INFOPLIST_FILE = "KelinTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K.app/K";
+				PRODUCT_NAME = KelinTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kelin.app/Kelin";
 			};
 			name = Debug;
 		};
@@ -743,17 +742,17 @@
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = KTests/Info.plist;
+				INFOPLIST_FILE = "KelinTests/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/K.app/K";
+				PRODUCT_NAME = KelinTests;
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Kelin.app/Kelin";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		45BB36EF1B414DF80079AF05 /* Build configuration list for PBXProject "K" */ = {
+		45BB36EF1B414DF80079AF05 /* Build configuration list for PBXProject "Kelin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45BB37151B414DF80079AF05 /* Debug */,
@@ -762,7 +761,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45BB37171B414DF80079AF05 /* Build configuration list for PBXNativeTarget "K" */ = {
+		45BB37171B414DF80079AF05 /* Build configuration list for PBXNativeTarget "Kelin" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45BB37181B414DF80079AF05 /* Debug */,
@@ -771,7 +770,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		45BB371A1B414DF80079AF05 /* Build configuration list for PBXNativeTarget "KTests" */ = {
+		45BB371A1B414DF80079AF05 /* Build configuration list for PBXNativeTarget "KelinTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				45BB371B1B414DF80079AF05 /* Debug */,
