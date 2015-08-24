@@ -1,12 +1,13 @@
 //
 //  DictionaryViewController.m
-//  
+//  Kelin
 //
 //  Created by Didara Pernebayeva on 20.07.15.
-//
+//  Copyright (c) 2015 Didara Pernebayeva. All rights reserved.
 //
 
 #import "DictionaryViewController.h"
+
 #import <Parse/Parse.h>
 #import "JGProgressHUD.h"
 #import <ZLSwipeableView/ZLSwipeableView.h>
@@ -15,11 +16,11 @@
 
 @interface DictionaryViewController () <ZLSwipeableViewDataSource, ZLSwipeableViewDelegate>
 
-@property (strong, nonatomic) NSArray *words;
-@property (nonatomic) long currentWord;
-@property (nonatomic) NSInteger wordsSwiped;
+@property (nonatomic) NSArray *words;
+@property (nonatomic) NSInteger currentWordNumber;
+@property (nonatomic) NSInteger wordsSwipedCount;
 @property (weak, nonatomic) IBOutlet ZLSwipeableView *swipeableView;
-@property (weak, nonatomic) IBOutlet UILabel *number;
+@property (weak, nonatomic) IBOutlet UILabel *numberLabel;
 
 @end
 
@@ -27,8 +28,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.currentWord = 0;
-    self.wordsSwiped = 1;
+    self.currentWordNumber = 0;
+    self.wordsSwipedCount = 1;
     self.swipeableView.dataSource = self;
     self.swipeableView.delegate = self;
     self.swipeableView.backgroundColor = [UIColor clearColor];
@@ -48,7 +49,7 @@
         if (!error) {
             if ([words count] > 0) {
                 self.words = [words mutableCopy];
-                self.number.text = [NSString stringWithFormat:@"%@/%@", @(self.wordsSwiped), @([self.words count])];
+                self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.wordsSwipedCount), @([self.words count])];
                 [self.swipeableView discardAllSwipeableViews];
                 [self.swipeableView loadNextSwipeableViewsIfNeeded];
             } else if (localDataStore) {
@@ -61,7 +62,7 @@
 }
 
 - (UIView *)nextViewForSwipeableView:(ZLSwipeableView *)swipeableView {
-    if ([self.words count] > 0 && self.currentWord < [self.words count]) {
+    if ([self.words count] > 0 && self.currentWordNumber < [self.words count]) {
         DictionaryCard *dictionaryCard = [[DictionaryCard alloc] initWithFrame:self.swipeableView.bounds];
         UILabel *wordLabel = [[UILabel alloc] initWithFrame:CGRectMake(10, 0, CGRectGetWidth(dictionaryCard.frame) - 20, CGRectGetHeight(dictionaryCard.frame)*0.4f)];
         wordLabel.backgroundColor = [UIColor whiteColor];
@@ -76,10 +77,10 @@
             label.textAlignment = NSTextAlignmentCenter;
             label.font = [UIFont openSansFontOfSize:32];
         }
-        PFObject *word = self.words[self.currentWord];
+        PFObject *word = self.words[self.currentWordNumber];
         wordLabel.text = [word[@"Text"] uppercaseString];
         definitionLabel.text = word[@"Words"];
-        self.currentWord++;
+        self.currentWordNumber++;
         
         return dictionaryCard;
     } else {
@@ -88,14 +89,10 @@
 }
 
 - (void)swipeableView:(ZLSwipeableView *)swipeableView didSwipeView:(UIView *)view inDirection:(ZLSwipeableViewDirection)direction {
-    if (self.wordsSwiped < [self.words count]) {
-        self.wordsSwiped++;
-        self.number.text = [NSString stringWithFormat:@"%@/%@", @(self.wordsSwiped), @([self.words count])];
+    if (self.wordsSwipedCount < [self.words count]) {
+        self.wordsSwipedCount++;
+        self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.wordsSwipedCount), @([self.words count])];
     }
 }
-
-
-
-
 
 @end
