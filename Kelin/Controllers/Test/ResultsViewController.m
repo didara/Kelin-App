@@ -96,6 +96,7 @@ static CGSize const kResultsSharingViewSize = {400, 400};
 - (IBAction)shareButtonTapped:(UIButton *)sender {
     UIImage *image = [self convertViewToImage:[self viewForSharing]];
     if ([MGInstagram isAppInstalled]) {
+#warning Add a comment to the post "#kelinapp @the_kelin" or something like that
         [self.instagramPoster postImage:image inView:self.view];
     } else {
 #warning Show an error
