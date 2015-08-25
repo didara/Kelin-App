@@ -1,5 +1,5 @@
 //
-//  RecipesTableViewCell.h
+//  RecipesViewCell.h
 //  Kelin
 //
 //  Created by Didara Pernebayeva on 13.07.15.
@@ -8,7 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface RecipesTableViewCell : UITableViewCell
+@interface RecipesViewCell : UITableViewCell
 
 @property (strong, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) IBOutlet  UIImageView *thumbImage;

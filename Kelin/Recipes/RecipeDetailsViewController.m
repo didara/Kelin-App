@@ -1,38 +1,50 @@
 //
-//  DetailTableViewController.m
-//  K
+//  RecipeDetailsViewController.m
+//  Kelin
 //
 //  Created by Didara Pernebayeva on 13.07.15.
 //  Copyright (c) 2015 Didara Pernebayeva. All rights reserved.
 //
 
-#import "DetailTableViewController.h"
+#import "RecipeDetailsViewController.h"
 
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
+#import "UIView+AYUtils.h"
 
-@interface DetailTableViewController ()
+@interface RecipeDetailsViewController ()
 
 @property (strong, nonatomic) IBOutlet UIImageView *imageView;
 @property (strong, nonatomic) IBOutlet UILabel *basicInformationLabel;
 
 @end
 
-@implementation DetailTableViewController
+@implementation RecipeDetailsViewController
 
 #pragma mark Lifecycle
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.navigationItem.title = self.info[0][@"intro"];
+    self.navigationItem.title = self.recipe[@"intro"];
     
     self.tableView.estimatedRowHeight = 200;
     self.tableView.allowsSelection = NO;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
-    self.imageView.image = self.info[1];
-    self.basicInformationLabel.text = self.info [2][@"firstInformation"];
+    [self.recipe[@"Image"] getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
+        if (!error) {
+            UIImage *image = [UIImage imageWithData:imageData];
+            self.imageView.image = image;
+        }
+    }];
+    
+    self.basicInformationLabel.text = self.recipe[@"firstInformation"];
     self.basicInformationLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+}
+
+- (void)viewWillLayoutSubviews {
+    [self.basicInformationLabel sizeToFit];
+    self.basicInformationLabel.superview.height = self.basicInformationLabel.bottom + 10;
 }
 
 #pragma mark UITableViewDataSource
@@ -58,9 +70,9 @@
     cell.textLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     cell.textLabel.numberOfLines = 0;
     if (indexPath.section == 0){
-        cell.textLabel.text = self.info[3][@"ingridients"];
+        cell.textLabel.text = self.recipe[@"ingridients"];
     } else {
-        cell.textLabel.text= self.info[4][@"cook"];
+        cell.textLabel.text= self.recipe[@"cook"];
     }
     return cell;
 }

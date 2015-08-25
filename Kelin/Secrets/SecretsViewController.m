@@ -29,6 +29,7 @@
     [super viewDidLoad];
     
     self.tableView.separatorColor = [UIColor clearColor];
+    self.refreshControl.tintColor = [UIColor darkGrayColor];
     [self.refreshControl addTarget:self action:@selector(downloadData) forControlEvents:UIControlEventValueChanged];
     
     self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];

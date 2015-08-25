@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="7706" systemVersion="14D136" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="7703"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
@@ -378,14 +377,14 @@
                                 <color key="textColor" red="0.21568627450980393" green="0.59215686274509804" blue="0.73725490196078436" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" image="RingIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SND-vO-9c3">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="RingIcon" translatesAutoresizingMaskIntoConstraints="NO" id="SND-vO-9c3">
                                 <rect key="frame" x="120" y="189" width="80" height="80"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="DIl-Ew-Z6W"/>
                                     <constraint firstAttribute="width" constant="80" id="NxX-Il-xg0"/>
                                 </constraints>
                             </imageView>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfO-gK-ILr" customClass="ZLSwipeableView">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="OfO-gK-ILr" customClass="ZLSwipeableView">
                                 <rect key="frame" x="16" y="89" width="288" height="401.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             </view>
@@ -476,7 +475,7 @@
                                     <action selector="optionButtonPressed:" destination="HfO-h2-wHz" eventType="touchUpInside" id="2Gw-gs-QFe"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VFy-OC-orW" userLabel="Question Label">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="center" lineBreakMode="clip" numberOfLines="0" baselineAdjustment="none" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="VFy-OC-orW" userLabel="Question Label">
                                 <rect key="frame" x="16" y="104" width="288" height="90"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="90" id="81e-0i-HNk"/>
@@ -639,13 +638,13 @@
         <!--Recipes View Controller-->
         <scene sceneID="fld-1S-wLl">
             <objects>
-                <tableViewController title="Recipes View Controller" id="0wU-cr-de9" customClass="RecipesTableViewController" sceneMemberID="viewController">
+                <tableViewController title="Recipes View Controller" id="0wU-cr-de9" customClass="RecipesViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="119" sectionHeaderHeight="22" sectionFooterHeight="22" id="oDI-0E-s6H">
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="119" id="kdY-Yl-YDe" customClass="RecipesTableViewCell">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="default" accessoryType="disclosureIndicator" indentationWidth="10" reuseIdentifier="TableCell" rowHeight="119" id="kdY-Yl-YDe" customClass="RecipesViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="kdY-Yl-YDe" id="c9v-8h-Doo">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -692,15 +691,15 @@
             </objects>
             <point key="canvasLocation" x="2368" y="-833"/>
         </scene>
-        <!--Detail Table View Controller-->
+        <!--Recipe Details View Controller-->
         <scene sceneID="ik9-Ti-669">
             <objects>
-                <tableViewController id="oWD-Pb-63B" customClass="DetailTableViewController" sceneMemberID="viewController">
+                <tableViewController id="oWD-Pb-63B" customClass="RecipeDetailsViewController" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="132" sectionHeaderHeight="22" sectionFooterHeight="22" id="1Gc-RM-1d4">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="570"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <view key="tableHeaderView" contentMode="scaleToFill" verticalCompressionResistancePriority="800" id="cf8-Ve-Val">
+                        <view key="tableHeaderView" contentMode="scaleToFill" verticalHuggingPriority="1000" verticalCompressionResistancePriority="1000" id="cf8-Ve-Val">
                             <rect key="frame" x="0.0" y="14" width="320" height="434"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <subviews>
@@ -710,8 +709,8 @@
                                         <constraint firstAttribute="height" constant="200" id="OkO-Nv-NOu"/>
                                     </constraints>
                                 </imageView>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="10" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nk-zU-fuw">
-                                    <rect key="frame" x="30" y="200" width="260" height="234"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0nk-zU-fuw">
+                                    <rect key="frame" x="30" y="210" width="260" height="214"/>
                                     <fontDescription key="fontDescription" name="OpenSans" family="Open Sans" pointSize="16"/>
                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
@@ -721,11 +720,10 @@
                             <constraints>
                                 <constraint firstAttribute="trailing" secondItem="NiQ-Vn-PUr" secondAttribute="trailing" id="7Xy-w0-O5S"/>
                                 <constraint firstItem="NiQ-Vn-PUr" firstAttribute="leading" secondItem="cf8-Ve-Val" secondAttribute="leading" id="926-os-jSb"/>
-                                <constraint firstAttribute="bottom" secondItem="0nk-zU-fuw" secondAttribute="bottom" id="Mhi-PU-pbS"/>
                                 <constraint firstAttribute="trailing" secondItem="0nk-zU-fuw" secondAttribute="trailing" constant="30" id="Y41-rz-crn"/>
-                                <constraint firstItem="0nk-zU-fuw" firstAttribute="top" secondItem="NiQ-Vn-PUr" secondAttribute="bottom" id="sdD-Vd-8un"/>
+                                <constraint firstAttribute="bottom" secondItem="0nk-zU-fuw" secondAttribute="bottom" constant="10" id="nRc-YS-6nk"/>
+                                <constraint firstItem="0nk-zU-fuw" firstAttribute="top" secondItem="NiQ-Vn-PUr" secondAttribute="bottom" constant="10" id="sdD-Vd-8un"/>
                                 <constraint firstItem="NiQ-Vn-PUr" firstAttribute="top" secondItem="cf8-Ve-Val" secondAttribute="top" id="tY0-aw-75U"/>
-                                <constraint firstAttribute="centerX" secondItem="0nk-zU-fuw" secondAttribute="centerX" id="xT3-5I-nLG"/>
                                 <constraint firstItem="0nk-zU-fuw" firstAttribute="leading" secondItem="cf8-Ve-Val" secondAttribute="leading" constant="30" id="yyg-z6-aZd"/>
                             </constraints>
                         </view>
