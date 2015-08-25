@@ -51,19 +51,14 @@ static CGSize const kResultsSharingViewSize = {400, 400};
         self.levelLabel.text = @"Вы - настоящая келiн!!!";
     } else if (self.percentage > 0.91f) {
         self.levelLabel.text = @"Вы Келин для всего Казахстана";
-        self.levelLabel.font = [UIFont openSansLightFontOfSize:28];
     } else if (self.percentage > 0.83f) {
         self.levelLabel.text = @"Вы Келин всех регионов, кроме ЮКО";
-        self.levelLabel.font = [UIFont openSansLightFontOfSize:26];
     } else if (self.percentage > 0.75f) {
         self.levelLabel.text = @"Вы Келин Северного, Центрального и Восточного Казахстана";
-        self.levelLabel.font = [UIFont openSansLightFontOfSize:22];
     } else if (self.percentage > 0.68f) {
         self.levelLabel.text = @"Вы Келин Северного и Восточного Казахстана";
-        self.levelLabel.font = [UIFont openSansLightFontOfSize:24];
     } else if (self.percentage > 0.5f){
         self.levelLabel.text = @"Вы Келин Северного Казахстана";
-        self.levelLabel.font = [UIFont openSansLightFontOfSize:28];
     }   else if (self.percentage < 0.5f) {
         self.levelLabel.text = @"Неплохо, можно лучше! :)";
     }
@@ -103,7 +98,7 @@ static CGSize const kResultsSharingViewSize = {400, 400};
     if ([MGInstagram isAppInstalled]) {
         [self.instagramPoster postImage:image inView:self.view];
     } else {
-        // Need to show the error
+#warning Show an error
     }
 }
 

@@ -588,7 +588,7 @@
                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
                                 </state>
                                 <connections>
-                                    <segue destination="mdp-a5-3h1" kind="unwind" unwindAction="prepareForUnwind:" id="GwB-OA-wvI"/>
+                                    <segue destination="3Bi-9u-VKr" kind="push" id="fvX-So-m3e"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vja-MP-rPp">
@@ -631,7 +631,6 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hOw-rl-pG8" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <exit id="mdp-a5-3h1" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2382" y="-1501"/>
         </scene>
@@ -851,7 +850,7 @@
         <simulatedScreenMetrics key="destination" type="retina4"/>
     </simulatedMetricsContainer>
     <inferredMetricsTieBreakers>
-        <segue reference="Ljy-57-nIP"/>
+        <segue reference="fvX-So-m3e"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" red="1" green="1" blue="1" alpha="1" colorSpace="calibratedRGB"/>
 </document>

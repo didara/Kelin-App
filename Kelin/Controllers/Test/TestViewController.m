@@ -73,6 +73,7 @@
                 [self.questions removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(13, self.questions.count - 13)]];
                 self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
                 
+#warning Attach options to the questions to avoid extra requests
                 for (Question *question in self.questions) {
                     PFQuery *optionQuery = [PFQuery queryWithClassName:@"Option"];
                     [optionQuery whereKey:@"questionId" equalTo:question];
