@@ -28,9 +28,6 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
-    self.HUD.textLabel.text = @"Келiн пошла за продуктами";
-    [self.HUD showInView:self.tableView];
     
     self.tableView.separatorColor = [UIColor clearColor];
     self.tableView.separatorInset = UIEdgeInsetsZero;
@@ -45,6 +42,10 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Food"];
     if (localDataStore) {
         [query fromLocalDatastore];
+    } else if (!self.HUD) {
+        self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
+        self.HUD.textLabel.text = @"Келiн пошла за продуктами";
+        [self.HUD showInView:self.tableView];
     }
 
     [query findObjectsInBackgroundWithBlock:^(NSArray *intros, NSError *error) {

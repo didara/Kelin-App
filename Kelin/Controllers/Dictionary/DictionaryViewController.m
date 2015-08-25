@@ -38,10 +38,6 @@
     self.swipeableView.delegate = self;
     self.swipeableView.backgroundColor = [UIColor clearColor];
     
-    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    self.HUD.textLabel.text = @"Келiн убирается";
-    [self.HUD showInView:self.view];
-    
     [self getDataFromParseFromLocalDataStore:YES];
 }
 
@@ -51,6 +47,10 @@
     PFQuery *query = [PFQuery queryWithClassName:@"Dictionary"];
     if (localDataStore) {
         [query fromLocalDatastore];
+    } else if (!self.HUD) {
+        self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
+        self.HUD.textLabel.text = @"Келiн пошла за продуктами";
+        [self.HUD showInView:self.view];
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *words, NSError *error) {
         if (!error) {
