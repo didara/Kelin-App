@@ -45,6 +45,8 @@
     self.questionLabel.textColor = [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1] /*#d81e35*/;
     for (UIButton *button in @[self.optionAButton, self.optionBButton, self.optionCButton, self.optionDButton]) {
         button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont smallTextFontSize]];
+        button.titleLabel.numberOfLines = 2;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     self.progressIndicatorLabel.font = [UIFont openSansFontOfSize:[UIFont largeTextFontSize]];
     
