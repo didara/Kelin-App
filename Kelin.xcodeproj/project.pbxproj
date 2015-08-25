@@ -13,11 +13,11 @@
 		20C36B2C1B8C556000D3E3D6 /* UIImage+AYAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B291B8C556000D3E3D6 /* UIImage+AYAdditions.m */; };
 		20C36B2D1B8C556000D3E3D6 /* UIColor+AYHooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B2B1B8C556000D3E3D6 /* UIColor+AYHooks.m */; };
 		45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45029AF61B4BB41500E4B8AC /* ResultsViewController.m */; };
-		4541419F1B53AD9D00524FA9 /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */; };
-		454141A21B53B6AB00524FA9 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */; };
+		4541419F1B53AD9D00524FA9 /* RecipesViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541419E1B53AD9D00524FA9 /* RecipesViewCell.m */; };
+		454141A21B53B6AB00524FA9 /* RecipesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141A11B53B6AB00524FA9 /* RecipesViewController.m */; };
 		45742A001B611352001DF544 /* DictionaryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 457429FF1B611352001DF544 /* DictionaryCard.m */; };
 		45AE26A01B5D1D2C00245732 /* DictionaryViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE269F1B5D1D2C00245732 /* DictionaryViewController.m */; };
-		45AE26A31B5E1A0600245732 /* DetailTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE26A21B5E1A0600245732 /* DetailTableViewController.m */; };
+		45AE26A31B5E1A0600245732 /* RecipeDetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45AE26A21B5E1A0600245732 /* RecipeDetailsViewController.m */; };
 		45AE26A61B5E4A3700245732 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 45AE26A51B5E4A3700245732 /* QuartzCore.framework */; };
 		45BB36FA1B414DF80079AF05 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB36F91B414DF80079AF05 /* main.m */; };
 		45BB36FD1B414DF80079AF05 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 45BB36FC1B414DF80079AF05 /* AppDelegate.m */; };
@@ -59,16 +59,16 @@
 		20C36B2B1B8C556000D3E3D6 /* UIColor+AYHooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AYHooks.m"; sourceTree = "<group>"; };
 		45029AF51B4BB41500E4B8AC /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		45029AF61B4BB41500E4B8AC /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
-		4541419D1B53AD9D00524FA9 /* RecipesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewCell.h; sourceTree = "<group>"; };
-		4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
-		454141A01B53B6AB00524FA9 /* RecipesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewController.h; sourceTree = "<group>"; };
-		454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewController.m; sourceTree = "<group>"; };
+		4541419D1B53AD9D00524FA9 /* RecipesViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesViewCell.h; sourceTree = "<group>"; };
+		4541419E1B53AD9D00524FA9 /* RecipesViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesViewCell.m; sourceTree = "<group>"; };
+		454141A01B53B6AB00524FA9 /* RecipesViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesViewController.h; sourceTree = "<group>"; };
+		454141A11B53B6AB00524FA9 /* RecipesViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesViewController.m; sourceTree = "<group>"; };
 		457429FE1B611352001DF544 /* DictionaryCard.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryCard.h; sourceTree = "<group>"; };
 		457429FF1B611352001DF544 /* DictionaryCard.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryCard.m; sourceTree = "<group>"; };
 		45AE269E1B5D1D2C00245732 /* DictionaryViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DictionaryViewController.h; sourceTree = "<group>"; };
 		45AE269F1B5D1D2C00245732 /* DictionaryViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DictionaryViewController.m; sourceTree = "<group>"; };
-		45AE26A11B5E19FB00245732 /* DetailTableViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailTableViewController.h; sourceTree = "<group>"; };
-		45AE26A21B5E1A0600245732 /* DetailTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailTableViewController.m; sourceTree = "<group>"; };
+		45AE26A11B5E19FB00245732 /* RecipeDetailsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecipeDetailsViewController.h; sourceTree = "<group>"; };
+		45AE26A21B5E1A0600245732 /* RecipeDetailsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailsViewController.m; sourceTree = "<group>"; };
 		45AE26A51B5E4A3700245732 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		45BB36F41B414DF80079AF05 /* Kelin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Kelin.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		45BB36F81B414DF80079AF05 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 				20C36B1E1B8B876900D3E3D6 /* UIView+AYUtils.h */,
 				20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */,
 			);
-			name = Helpers;
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 		20C36B171B8B807700D3E3D6 /* Controllers */ = {
@@ -156,7 +156,7 @@
 				4514641C1B6B52C600245937 /* Dictionary */,
 				451464131B6B43CC00245937 /* Secrets */,
 			);
-			name = Controllers;
+			path = Controllers;
 			sourceTree = "<group>";
 		};
 		20C36B261B8BA43E00D3E3D6 /* Authorization */ = {
@@ -169,7 +169,7 @@
 				45DBB8281B4FBD9E005FE6F5 /* SignUpViewController.h */,
 				45DBB8291B4FBD9E005FE6F5 /* SignUpViewController.m */,
 			);
-			name = Authorization;
+			path = Authorization;
 			sourceTree = "<group>";
 		};
 		451464131B6B43CC00245937 /* Secrets */ = {
@@ -199,12 +199,12 @@
 		4514641B1B6B526900245937 /* Recipes */ = {
 			isa = PBXGroup;
 			children = (
-				4541419D1B53AD9D00524FA9 /* RecipesTableViewCell.h */,
-				4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */,
-				454141A01B53B6AB00524FA9 /* RecipesTableViewController.h */,
-				454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */,
-				45AE26A11B5E19FB00245732 /* DetailTableViewController.h */,
-				45AE26A21B5E1A0600245732 /* DetailTableViewController.m */,
+				4541419D1B53AD9D00524FA9 /* RecipesViewCell.h */,
+				4541419E1B53AD9D00524FA9 /* RecipesViewCell.m */,
+				454141A01B53B6AB00524FA9 /* RecipesViewController.h */,
+				454141A11B53B6AB00524FA9 /* RecipesViewController.m */,
+				45AE26A11B5E19FB00245732 /* RecipeDetailsViewController.h */,
+				45AE26A21B5E1A0600245732 /* RecipeDetailsViewController.m */,
 			);
 			path = Recipes;
 			sourceTree = "<group>";
@@ -452,15 +452,15 @@
 			files = (
 				20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */,
 				45D08C281B4287FF00C05A99 /* CategoriesViewController.m in Sources */,
-				45AE26A31B5E1A0600245732 /* DetailTableViewController.m in Sources */,
+				45AE26A31B5E1A0600245732 /* RecipeDetailsViewController.m in Sources */,
 				45AE26A01B5D1D2C00245732 /* DictionaryViewController.m in Sources */,
 				45BB37001B414DF80079AF05 /* LogInViewController.m in Sources */,
-				4541419F1B53AD9D00524FA9 /* RecipesTableViewCell.m in Sources */,
+				4541419F1B53AD9D00524FA9 /* RecipesViewCell.m in Sources */,
 				45DBB8241B4FB6DE005FE6F5 /* AuthorizationViewController.m in Sources */,
 				45DBB82A1B4FBD9E005FE6F5 /* SignUpViewController.m in Sources */,
 				45BB36FD1B414DF80079AF05 /* AppDelegate.m in Sources */,
 				20C36B1D1B8B838000D3E3D6 /* UIFont+Sizes.m in Sources */,
-				454141A21B53B6AB00524FA9 /* RecipesTableViewController.m in Sources */,
+				454141A21B53B6AB00524FA9 /* RecipesViewController.m in Sources */,
 				45E2E5631B68FF1900950052 /* SendSecretViewController.m in Sources */,
 				20C36B2D1B8C556000D3E3D6 /* UIColor+AYHooks.m in Sources */,
 				20C36B2C1B8C556000D3E3D6 /* UIImage+AYAdditions.m in Sources */,
