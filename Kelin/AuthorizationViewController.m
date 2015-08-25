@@ -9,8 +9,10 @@
 #import "AuthorizationViewController.h"
 
 #import "JGProgressHUD.h"
+#import "UIColor+AYHooks.h"
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
+#import "UIImage+AYAdditions.h"
 
 @interface AuthorizationViewController ()
 
@@ -22,12 +24,14 @@
 @implementation AuthorizationViewController
 
 - (void)viewDidLoad {
-    [super viewDidLoad];    
+    [super viewDidLoad];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
-    self.logInButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
-    self.logInButton.layer.cornerRadius = 5;
-    self.signUpButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
-    self.signUpButton.layer.cornerRadius = 5;
+    for (UIButton *button in @[self.logInButton, self.signUpButton]) {
+        button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+        button.layer.cornerRadius = 5;
+        [button setBackgroundImage:[UIImage imageWithColor:button.backgroundColor] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageWithColor:[button.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
+    }
 }
 
 - (void)viewWillAppear:(BOOL)animated {

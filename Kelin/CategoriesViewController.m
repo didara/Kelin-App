@@ -32,7 +32,7 @@
 
 - (IBAction)logoutButtonPressed:(UIBarButtonItem *)sender {
     [PFUser logOutInBackgroundWithBlock:^(NSError *error) {
-        [self dismissViewControllerAnimated:YES completion:nil];
+        [self performSegueWithIdentifier:@"goToAuthorization" sender:nil];
     }];
 }
 

@@ -1,50 +1,88 @@
 //
 //  SecretsViewController.m
-//  K
+//  Kelin
 //
-//  Created by Didara Pernebayeva on 29.07.15.
+//  Created by Didara Pernebayeva on 30.07.15.
 //  Copyright (c) 2015 Didara Pernebayeva. All rights reserved.
 //
 
 #import "SecretsViewController.h"
 
-#import <Parse/Parse.h>
 #import "JGProgressHUD.h"
+#import <Parse/Parse.h>
+#import <UIFont+OpenSans.h>
+#import "UIFont+Sizes.h"
+#import "UIView+AYUtils.h"
 
 @interface SecretsViewController ()
 
-@property (weak, nonatomic) IBOutlet UITextView *stories;
+@property (nonatomic) NSArray *secrets;
+@property (nonatomic) JGProgressHUD *HUD;
 
 @end
 
 @implementation SecretsViewController
 
+#pragma mark Lifecycle
+
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.stories.tintColor = [UIColor blackColor];
+    
+    self.tableView.separatorColor = [UIColor clearColor];
+    [self.refreshControl addTarget:self action:@selector(downloadData) forControlEvents:UIControlEventValueChanged];
+    
+    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    [self.HUD showInView:self.view];
+    [self downloadData];
 }
 
-- (void)viewDidAppear:(BOOL)animated {
-    [super viewDidAppear:animated];
-    [self.stories becomeFirstResponder];
-}
+#pragma mark Private
 
-- (IBAction)DoneButtonPressed:(UIBarButtonItem *)sender {
-    JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    HUD.textLabel.text = @"Отправляется";
-    [HUD showInView:self.view];
-    PFObject *secret = [PFObject objectWithClassName:@"Secrets"];
-    secret[@"story"] = _stories.text;
-    [secret saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-        if (succeeded) {
-            [HUD dismissAnimated:YES];
-            [self.navigationController popViewControllerAnimated:YES];
-            NSLog(@"saved %@", secret);
+- (void)downloadData {
+    PFQuery *query = [PFQuery queryWithClassName:@"Secrets"];
+    [query orderByDescending:@"updatedAt"];
+    [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        if (!error) {
+            if ([self.HUD isVisible]) {
+                [self.HUD dismissAnimated:YES];
+            }
+            self.secrets = [objects mutableCopy];
         } else {
-            NSLog(@"error");
+#warning Show an error
         }
+        [self.refreshControl endRefreshing];
+        [self.tableView reloadData];
     }];
 }
 
+#pragma mark UITableViewDataSource
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.secrets.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+    cell.textLabel.numberOfLines = 0;
+    cell.textLabel.textColor = [UIColor darkGrayColor];
+    cell.textLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+    cell.textLabel.text = self.secrets[indexPath.row][@"story"];
+    return cell;
+}
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
+    paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
+    return [self.secrets[indexPath.row][@"story"]
+                        boundingRectWithSize:CGSizeMake(self.view.width - 40, 0)
+                        options:NSStringDrawingUsesLineFragmentOrigin
+                        attributes:@{ NSParagraphStyleAttributeName:paragraphStyle.copy,
+                                      NSFontAttributeName : [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]] }
+                        context:nil].size.height + 40;
+}
 
 @end

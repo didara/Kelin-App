@@ -10,8 +10,9 @@
 		1DE0D9BB28890743D4827993 /* libPods.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 71A8261AD1B4F37ED32009D2 /* libPods.a */; };
 		20C36B1D1B8B838000D3E3D6 /* UIFont+Sizes.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B1C1B8B838000D3E3D6 /* UIFont+Sizes.m */; };
 		20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */; };
+		20C36B2C1B8C556000D3E3D6 /* UIImage+AYAdditions.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B291B8C556000D3E3D6 /* UIImage+AYAdditions.m */; };
+		20C36B2D1B8C556000D3E3D6 /* UIColor+AYHooks.m in Sources */ = {isa = PBXBuildFile; fileRef = 20C36B2B1B8C556000D3E3D6 /* UIColor+AYHooks.m */; };
 		45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45029AF61B4BB41500E4B8AC /* ResultsViewController.m */; };
-		451464161B6B43F000245937 /* SecretPostTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 451464151B6B43F000245937 /* SecretPostTableViewCell.m */; };
 		4541419F1B53AD9D00524FA9 /* RecipesTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */; };
 		454141A21B53B6AB00524FA9 /* RecipesTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 454141A11B53B6AB00524FA9 /* RecipesTableViewController.m */; };
 		45742A001B611352001DF544 /* DictionaryCard.m in Sources */ = {isa = PBXBuildFile; fileRef = 457429FF1B611352001DF544 /* DictionaryCard.m */; };
@@ -32,8 +33,8 @@
 		45DBB8241B4FB6DE005FE6F5 /* AuthorizationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBB8231B4FB6DE005FE6F5 /* AuthorizationViewController.m */; };
 		45DBB82A1B4FBD9E005FE6F5 /* SignUpViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DBB8291B4FBD9E005FE6F5 /* SignUpViewController.m */; };
 		45DD803A1B664DD200E7B3C7 /* Question.m in Sources */ = {isa = PBXBuildFile; fileRef = 45DD80391B664DD200E7B3C7 /* Question.m */; };
-		45E2E5631B68FF1900950052 /* SecretsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2E5621B68FF1900950052 /* SecretsViewController.m */; };
-		45E2E5661B69E78200950052 /* SecretsTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2E5651B69E78200950052 /* SecretsTableViewController.m */; };
+		45E2E5631B68FF1900950052 /* SendSecretViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2E5621B68FF1900950052 /* SendSecretViewController.m */; };
+		45E2E5661B69E78200950052 /* SecretsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 45E2E5651B69E78200950052 /* SecretsViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,10 +53,12 @@
 		20C36B1E1B8B876900D3E3D6 /* UIView+AYUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+AYUtils.h"; sourceTree = "<group>"; };
 		20C36B1F1B8B876900D3E3D6 /* UIView+AYUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+AYUtils.m"; sourceTree = "<group>"; };
 		20C36B271B8BA52800D3E3D6 /* AYMacros.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AYMacros.h; sourceTree = "<group>"; };
+		20C36B281B8C556000D3E3D6 /* UIImage+AYAdditions.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+AYAdditions.h"; sourceTree = "<group>"; };
+		20C36B291B8C556000D3E3D6 /* UIImage+AYAdditions.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+AYAdditions.m"; sourceTree = "<group>"; };
+		20C36B2A1B8C556000D3E3D6 /* UIColor+AYHooks.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIColor+AYHooks.h"; sourceTree = "<group>"; };
+		20C36B2B1B8C556000D3E3D6 /* UIColor+AYHooks.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIColor+AYHooks.m"; sourceTree = "<group>"; };
 		45029AF51B4BB41500E4B8AC /* ResultsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ResultsViewController.h; sourceTree = "<group>"; };
 		45029AF61B4BB41500E4B8AC /* ResultsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ResultsViewController.m; sourceTree = "<group>"; };
-		451464141B6B43F000245937 /* SecretPostTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretPostTableViewCell.h; sourceTree = "<group>"; };
-		451464151B6B43F000245937 /* SecretPostTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretPostTableViewCell.m; sourceTree = "<group>"; };
 		4541419D1B53AD9D00524FA9 /* RecipesTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewCell.h; sourceTree = "<group>"; };
 		4541419E1B53AD9D00524FA9 /* RecipesTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipesTableViewCell.m; sourceTree = "<group>"; };
 		454141A01B53B6AB00524FA9 /* RecipesTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipesTableViewController.h; sourceTree = "<group>"; };
@@ -93,10 +96,10 @@
 		45DBB8291B4FBD9E005FE6F5 /* SignUpViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SignUpViewController.m; sourceTree = "<group>"; };
 		45DD80381B664DD200E7B3C7 /* Question.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Question.h; sourceTree = "<group>"; };
 		45DD80391B664DD200E7B3C7 /* Question.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Question.m; sourceTree = "<group>"; };
-		45E2E5611B68FF1900950052 /* SecretsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretsViewController.h; sourceTree = "<group>"; };
-		45E2E5621B68FF1900950052 /* SecretsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretsViewController.m; sourceTree = "<group>"; };
-		45E2E5641B69E78200950052 /* SecretsTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretsTableViewController.h; sourceTree = "<group>"; };
-		45E2E5651B69E78200950052 /* SecretsTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretsTableViewController.m; sourceTree = "<group>"; };
+		45E2E5611B68FF1900950052 /* SendSecretViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SendSecretViewController.h; sourceTree = "<group>"; };
+		45E2E5621B68FF1900950052 /* SendSecretViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SendSecretViewController.m; sourceTree = "<group>"; };
+		45E2E5641B69E78200950052 /* SecretsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SecretsViewController.h; sourceTree = "<group>"; };
+		45E2E5651B69E78200950052 /* SecretsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SecretsViewController.m; sourceTree = "<group>"; };
 		71A8261AD1B4F37ED32009D2 /* libPods.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libPods.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		77621FD128E407D974262C12 /* Pods.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.debug.xcconfig; path = "Pods/Target Support Files/Pods/Pods.debug.xcconfig"; sourceTree = "<group>"; };
 		ED18152D9D0AAD19DC871B94 /* Pods.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = Pods.release.xcconfig; path = "Pods/Target Support Files/Pods/Pods.release.xcconfig"; sourceTree = "<group>"; };
@@ -127,6 +130,10 @@
 		20C36B161B8B7FC200D3E3D6 /* Helpers */ = {
 			isa = PBXGroup;
 			children = (
+				20C36B281B8C556000D3E3D6 /* UIImage+AYAdditions.h */,
+				20C36B291B8C556000D3E3D6 /* UIImage+AYAdditions.m */,
+				20C36B2A1B8C556000D3E3D6 /* UIColor+AYHooks.h */,
+				20C36B2B1B8C556000D3E3D6 /* UIColor+AYHooks.m */,
 				20C36B271B8BA52800D3E3D6 /* AYMacros.h */,
 				20C36B1B1B8B838000D3E3D6 /* UIFont+Sizes.h */,
 				20C36B1C1B8B838000D3E3D6 /* UIFont+Sizes.m */,
@@ -168,12 +175,10 @@
 		451464131B6B43CC00245937 /* Secrets */ = {
 			isa = PBXGroup;
 			children = (
-				45E2E5611B68FF1900950052 /* SecretsViewController.h */,
-				45E2E5621B68FF1900950052 /* SecretsViewController.m */,
-				45E2E5641B69E78200950052 /* SecretsTableViewController.h */,
-				45E2E5651B69E78200950052 /* SecretsTableViewController.m */,
-				451464141B6B43F000245937 /* SecretPostTableViewCell.h */,
-				451464151B6B43F000245937 /* SecretPostTableViewCell.m */,
+				45E2E5611B68FF1900950052 /* SendSecretViewController.h */,
+				45E2E5621B68FF1900950052 /* SendSecretViewController.m */,
+				45E2E5641B69E78200950052 /* SecretsViewController.h */,
+				45E2E5651B69E78200950052 /* SecretsViewController.m */,
 			);
 			path = Secrets;
 			sourceTree = "<group>";
@@ -445,7 +450,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				451464161B6B43F000245937 /* SecretPostTableViewCell.m in Sources */,
 				20C36B201B8B876900D3E3D6 /* UIView+AYUtils.m in Sources */,
 				45D08C281B4287FF00C05A99 /* CategoriesViewController.m in Sources */,
 				45AE26A31B5E1A0600245732 /* DetailTableViewController.m in Sources */,
@@ -457,12 +461,14 @@
 				45BB36FD1B414DF80079AF05 /* AppDelegate.m in Sources */,
 				20C36B1D1B8B838000D3E3D6 /* UIFont+Sizes.m in Sources */,
 				454141A21B53B6AB00524FA9 /* RecipesTableViewController.m in Sources */,
-				45E2E5631B68FF1900950052 /* SecretsViewController.m in Sources */,
+				45E2E5631B68FF1900950052 /* SendSecretViewController.m in Sources */,
+				20C36B2D1B8C556000D3E3D6 /* UIColor+AYHooks.m in Sources */,
+				20C36B2C1B8C556000D3E3D6 /* UIImage+AYAdditions.m in Sources */,
 				45029AF71B4BB41500E4B8AC /* ResultsViewController.m in Sources */,
 				45742A001B611352001DF544 /* DictionaryCard.m in Sources */,
 				45DD803A1B664DD200E7B3C7 /* Question.m in Sources */,
 				45BB36FA1B414DF80079AF05 /* main.m in Sources */,
-				45E2E5661B69E78200950052 /* SecretsTableViewController.m in Sources */,
+				45E2E5661B69E78200950052 /* SecretsViewController.m in Sources */,
 				45D08C2B1B42AE1F00C05A99 /* TestViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

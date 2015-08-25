@@ -10,8 +10,10 @@
 
 #import "JGProgressHUD.h"
 #import <Parse/Parse.h>
+#import "UIColor+AYHooks.h"
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
+#import "UIImage+AYAdditions.h"
 
 @interface SignUpViewController ()
 
@@ -29,6 +31,8 @@
     self.passwordTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.signUpButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.signUpButton.layer.cornerRadius = 5;
+    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:self.signUpButton.backgroundColor] forState:UIControlStateNormal];
+    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:[self.signUpButton.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
 }
 
 - (IBAction)signUpButtonTapped:(UIButton *)sender {

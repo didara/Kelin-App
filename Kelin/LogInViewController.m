@@ -10,8 +10,10 @@
 
 #import "JGProgressHUD.h"
 #import <Parse/Parse.h>
+#import "UIColor+AYHooks.h"
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
+#import "UIImage+AYAdditions.h"
 
 @interface LogInViewController ()
 
@@ -29,6 +31,8 @@
     self.passwordTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.logInButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.logInButton.layer.cornerRadius = 5;
+    [self.logInButton setBackgroundImage:[UIImage imageWithColor:self.logInButton.backgroundColor] forState:UIControlStateNormal];
+    [self.logInButton setBackgroundImage:[UIImage imageWithColor:[self.logInButton.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {

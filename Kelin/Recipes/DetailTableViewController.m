@@ -27,6 +27,7 @@
     self.navigationItem.title = self.info[0][@"intro"];
     
     self.tableView.estimatedRowHeight = 200;
+    self.tableView.allowsSelection = NO;
     self.tableView.rowHeight = UITableViewAutomaticDimension;
     
     self.imageView.image = self.info[1];

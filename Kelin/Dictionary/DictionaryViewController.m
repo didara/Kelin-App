@@ -55,6 +55,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *words, NSError *error) {
         if (!error) {
             if ([words count] > 0) {
+                [PFObject pinAllInBackground:words];
                 [self.HUD dismissAnimated:YES];
                 self.words = [words mutableCopy];
                 self.numberLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.wordsSwipedCount), @([self.words count])];

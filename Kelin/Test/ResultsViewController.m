@@ -10,8 +10,10 @@
 
 #import "AYMacros.h"
 #import <MGInstagram/MGInstagram.h>
-#import "UIFont+Sizes.h"
+#import "UIColor+AYHooks.h"
 #import <UIFont+OpenSans.h>
+#import "UIFont+Sizes.h"
+#import "UIImage+AYAdditions.h"
 #import "UIView+AYUtils.h"
 
 static CGSize const kResultsSharingViewSize = {400, 400};
@@ -37,6 +39,8 @@ static CGSize const kResultsSharingViewSize = {400, 400};
     self.instagramPoster = [MGInstagram new];
     for (UIButton *button in @[self.unwindButton, self.shareButton]) {
         button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+        [button setBackgroundImage:[UIImage imageWithColor:button.backgroundColor] forState:UIControlStateNormal];
+        [button setBackgroundImage:[UIImage imageWithColor:[button.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
     }
     
     self.levelLabel.font = [UIFont openSansLightFontOfSize:26];

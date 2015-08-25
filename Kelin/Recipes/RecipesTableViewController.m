@@ -39,6 +39,7 @@
     [self.HUD showInView:self.tableView];
     
     self.tableView.separatorInset = UIEdgeInsetsZero;
+    self.tableView.layoutMargins = UIEdgeInsetsZero;
     
     [self getDataFromParseFromLocalDataStore:YES];
 }
@@ -54,6 +55,7 @@
     [query findObjectsInBackgroundWithBlock:^(NSArray *intros, NSError *error) {
         if (!error) {
             if (intros.count > 0) {
+                [PFObject pinAllInBackground:intros];
                 [self.HUD dismissAnimated:YES];
                 self.recipes = intros;
                 [self.tableView reloadData];
@@ -62,7 +64,7 @@
             }
         } else {
             [self.HUD dismissAnimated:YES];
-            // Show an error
+#warning Show an error
         }
     }];
 }
