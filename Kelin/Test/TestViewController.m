@@ -55,35 +55,44 @@
     self.HUD.textLabel.text = @"Келiн наливает чай";
     [self.HUD showInView:self.view];
     
-    [self downloadData];
+    [self getDataFromParseFromLocalDataStore:YES];
 }
 #pragma mark Private
 
-- (void)downloadData {
+- (void)getDataFromParseFromLocalDataStore:(BOOL)localDataStore {
     PFQuery *query = [PFQuery queryWithClassName:@"Question"];
-    
+    if (localDataStore) {
+        [query fromLocalDatastore];
+    }
     [query findObjectsInBackgroundWithBlock:^(NSArray *questions, NSError *questionsError) {
         if (!questionsError) {
-            //[PFObject pinAllInBackground:questions];
-            self.questions = [questions mutableCopy];
-            [self randomizeArray:self.questions];
-            [self.questions removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(13, self.questions.count - 13)]];
-            self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
-            
-            for (Question *question in self.questions) {
-                PFQuery *optionQuery = [PFQuery queryWithClassName:@"Option"];
-                [optionQuery whereKey:@"questionId" equalTo:question];
-                [optionQuery findObjectsInBackgroundWithBlock:^(NSArray *options, NSError *optionsError) {
-                    if (!optionsError) {
-                        question.options = options;
-                        self.processedQuestionsCount++;
-                        if (self.processedQuestionsCount == self.questions.count) {
-                            [self.HUD dismissAnimated:YES];
-                            [self showCurrentQuestion];
+            if (questions.count > 0) {
+                [PFObject pinAllInBackground:questions];
+                self.questions = [questions mutableCopy];
+                [self randomizeArray:self.questions];
+                [self.questions removeObjectsAtIndexes:[NSIndexSet indexSetWithIndexesInRange:NSMakeRange(13, self.questions.count - 13)]];
+                self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
+                
+                for (Question *question in self.questions) {
+                    PFQuery *optionQuery = [PFQuery queryWithClassName:@"Option"];
+                    [optionQuery whereKey:@"questionId" equalTo:question];
+                    [optionQuery findObjectsInBackgroundWithBlock:^(NSArray *options, NSError *optionsError) {
+                        if (!optionsError) {
+                            question.options = options;
+                            self.processedQuestionsCount++;
+                            if (self.processedQuestionsCount == self.questions.count) {
+                                [self.HUD dismissAnimated:YES];
+                                [self showCurrentQuestion];
+                            }
                         }
-                    }
-                }];
+                    }];
+                }
+            } else if (localDataStore) {
+                [self getDataFromParseFromLocalDataStore:NO];
             }
+        } else {
+            [self.HUD dismissAnimated:YES];
+#warning Show an error
         }
     }];
 }

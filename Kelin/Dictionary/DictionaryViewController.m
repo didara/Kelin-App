@@ -54,7 +54,7 @@
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *words, NSError *error) {
         if (!error) {
-            if ([words count] > 0) {
+            if (words.count > 0) {
                 [PFObject pinAllInBackground:words];
                 [self.HUD dismissAnimated:YES];
                 self.words = [words mutableCopy];
@@ -66,7 +66,7 @@
             }
         } else {
             [self.HUD dismissAnimated:YES];
-            // Show error
+#warning Show an error
         }
     }];
 }
