@@ -104,6 +104,8 @@
     Question *question = self.questions[self.currentQuestion];
     self.questionLabel.text = question.text;
     self.correctAnswer = question.answer;
+    self.currentQuestion++;
+    self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
    
     NSMutableArray *options = [question.options mutableCopy];
     [self randomizeArray:options];
@@ -142,12 +144,10 @@
 
 - (void)displayNextQuestion {
     [self enableAll];
-    self.currentQuestion++;
     // Try not to use static numbers, instead use variables (the count of the questions array in this case)
     if (self.currentQuestion >= self.questions.count) {
         [self performSegueWithIdentifier:@"showResults" sender:nil];
     } else {
-        self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
         [self showCurrentQuestion];
     }
 }
