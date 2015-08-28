@@ -45,6 +45,8 @@
     self.questionLabel.textColor = [UIColor colorWithRed:0.847 green:0.118 blue:0.208 alpha:1] /*#d81e35*/;
     for (UIButton *button in @[self.optionAButton, self.optionBButton, self.optionCButton, self.optionDButton]) {
         button.titleLabel.font = [UIFont openSansFontOfSize:[UIFont smallTextFontSize]];
+        button.titleLabel.numberOfLines = 2;
+        button.titleLabel.textAlignment = NSTextAlignmentCenter;
     }
     self.progressIndicatorLabel.font = [UIFont openSansFontOfSize:[UIFont largeTextFontSize]];
     
@@ -106,6 +108,8 @@
     Question *question = self.questions[self.currentQuestion];
     self.questionLabel.text = question.text;
     self.correctAnswer = question.answer;
+    self.currentQuestion++;
+    self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
    
     NSMutableArray *options = [question.options mutableCopy];
     [self randomizeArray:options];
@@ -144,12 +148,10 @@
 
 - (void)displayNextQuestion {
     [self enableAll];
-    self.currentQuestion++;
     // Try not to use static numbers, instead use variables (the count of the questions array in this case)
     if (self.currentQuestion >= self.questions.count) {
         [self performSegueWithIdentifier:@"showResults" sender:nil];
     } else {
-        self.progressIndicatorLabel.text = [NSString stringWithFormat:@"%@/%@", @(self.currentQuestion), @(self.questions.count)];
         [self showCurrentQuestion];
     }
 }
