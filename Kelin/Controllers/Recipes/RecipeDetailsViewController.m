@@ -43,6 +43,7 @@
 }
 
 - (void)viewWillLayoutSubviews {
+    [super viewWillLayoutSubviews];
     [self.basicInformationLabel sizeToFit];
     self.basicInformationLabel.superview.height = self.basicInformationLabel.bottom + 10;
 }
