@@ -52,7 +52,7 @@
     [self enableAll];
     
     self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    self.HUD.textLabel.text = @"Келiн наливает чай";
+    self.HUD.textLabel.text = @"Келiн накрывает на стол";
     [self.HUD showInView:self.view];
     
     [self getDataFromParseFromLocalDataStore:YES];
@@ -94,6 +94,10 @@
         } else {
             [self.HUD dismissAnimated:YES];
 #warning Show an error
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"" delegate:self
+                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+
         }
     }];
 }

@@ -27,12 +27,15 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _passwordTextField.delegate = self;
+    //want to remove keyboard after pressing return
     self.usernameTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.passwordTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
+    [self.signUpButton setAlpha:0.7];
     self.signUpButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
-    self.signUpButton.layer.cornerRadius = 5;
-    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:self.signUpButton.backgroundColor] forState:UIControlStateNormal];
-    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:[self.signUpButton.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
+    self.signUpButton.layer.cornerRadius = 9;
+    //[self.signUpButton setBackgroundImage:[UIImage imageWithColor:self.signUpButton.backgroundColor] forState:UIControlStateNormal];
+    //[self.signUpButton setBackgroundImage:[UIImage imageWithColor:[self.signUpButton.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
 }
 
 - (IBAction)signUpButtonTapped:(UIButton *)sender {
@@ -53,6 +56,13 @@
             [alert show];
         }
     }];
+}
+//to remove keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.passwordTextField) {
+        [textField resignFirstResponder];
+    }
+    return NO;
 }
 
 @end

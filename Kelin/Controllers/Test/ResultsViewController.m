@@ -100,6 +100,10 @@ static CGSize const kResultsSharingViewSize = {400, 400};
         [self.instagramPoster postImage:image inView:self.view];
     } else {
 #warning Show an error
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Instagram не установлем на данном девайсе"      delegate:self
+                                              cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+
     }
 }
 
@@ -131,7 +135,7 @@ static CGSize const kResultsSharingViewSize = {400, 400};
     [viewForSharing addSubview:levelLabel];
     
     UILabel *watermarkLabel = [UILabel new];
-    watermarkLabel.text = @"#kelinapp";
+    watermarkLabel.text = @"@the_kelin";
     watermarkLabel.textColor = [UIColor whiteColor];
     watermarkLabel.font = self.levelLabel.font;
     [watermarkLabel sizeToFit];

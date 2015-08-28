@@ -67,6 +67,11 @@
         } else {
             [self.HUD dismissAnimated:YES];
 #warning Show an error
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"" delegate:self
+                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
+            
+
         }
     }];
 }
