@@ -1,0 +1,31 @@
+PODS:
+  - Bolts/Tasks (1.2.0)
+  - JGProgressHUD (1.3)
+  - JSQMessagesViewController (7.1.0):
+    - JSQSystemSoundPlayer (~> 2.0.1)
+  - JSQSystemSoundPlayer (2.0.1)
+  - MGInstagram (0.1.0)
+  - OpenSans (1.0.3)
+  - Parse (1.8.1):
+    - Bolts/Tasks (>= 1.2.0)
+  - ZLSwipeableView (0.0.7)
+
+DEPENDENCIES:
+  - JGProgressHUD
+  - JSQMessagesViewController
+  - MGInstagram
+  - OpenSans
+  - Parse
+  - ZLSwipeableView
+
+SPEC CHECKSUMS:
+  Bolts: d176cb1e0012175589e389a9db49b85e27787576
+  JGProgressHUD: a58f62d3afac173d201250c3ba628fe44bd67017
+  JSQMessagesViewController: ca11f86fa68ca70835f05e169df9244147c1dc40
+  JSQSystemSoundPlayer: c5850e77a4363ffd374cd851154b9af93264ed8d
+  MGInstagram: c85a061e25b053ad1cb1227675e238ce6cc50221
+  OpenSans: 33078846463eae780aa5f82986b51cce085f970d
+  Parse: 2155953b1565494095d5fa5c83b3c77f2c677c09
+  ZLSwipeableView: acf50179911c5f1e6150e0a279561344fbcda839
+
+COCOAPODS: 0.37.2

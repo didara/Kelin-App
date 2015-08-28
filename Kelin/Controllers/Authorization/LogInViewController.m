@@ -15,7 +15,7 @@
 #import "UIFont+Sizes.h"
 #import "UIImage+AYAdditions.h"
 
-@interface LogInViewController ()
+@interface LogInViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -27,12 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    self.passwordTextField.delegate = self;
+    //want to remove keyboard after pressing return
     self.usernameTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.passwordTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.logInButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
-    self.logInButton.layer.cornerRadius = 5;
-    [self.logInButton setBackgroundImage:[UIImage imageWithColor:self.logInButton.backgroundColor] forState:UIControlStateNormal];
-    [self.logInButton setBackgroundImage:[UIImage imageWithColor:[self.logInButton.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
+    self.logInButton.layer.cornerRadius = 9;
+    [self.logInButton setBackgroundImage:[UIImage imageWithColor:[self.logInButton.backgroundColor colorWithAlphaComponent:0.7f]] forState:UIControlStateNormal];
+    [self.logInButton setBackgroundImage:[UIImage imageWithColor:[[self.logInButton.backgroundColor darkerColor:0.1f] colorWithAlphaComponent:0.7f]] forState:UIControlStateHighlighted];
 }
 
 - (IBAction)loginButtonPressed:(UIButton *)sender {
@@ -50,6 +52,14 @@
             [alert show];
         }
     }];
+}
+
+//to remove keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.passwordTextField) {
+        [textField resignFirstResponder];
+    }
+    return NO;
 }
 
 @end

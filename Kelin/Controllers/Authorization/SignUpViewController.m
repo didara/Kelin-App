@@ -15,7 +15,7 @@
 #import "UIFont+Sizes.h"
 #import "UIImage+AYAdditions.h"
 
-@interface SignUpViewController ()
+@interface SignUpViewController () <UITextFieldDelegate>
 
 @property (weak, nonatomic) IBOutlet UITextField *usernameTextField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordTextField;
@@ -27,12 +27,14 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    _passwordTextField.delegate = self;
+    //want to remove keyboard after pressing return
     self.usernameTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.passwordTextField.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     self.signUpButton.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
-    self.signUpButton.layer.cornerRadius = 5;
-    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:self.signUpButton.backgroundColor] forState:UIControlStateNormal];
-    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:[self.signUpButton.backgroundColor darkerColor:0.1f]] forState:UIControlStateHighlighted];
+    self.signUpButton.layer.cornerRadius = 9;
+    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:[self.signUpButton.backgroundColor colorWithAlphaComponent:0.7f]] forState:UIControlStateNormal];
+    [self.signUpButton setBackgroundImage:[UIImage imageWithColor:[[self.signUpButton.backgroundColor darkerColor:0.1f] colorWithAlphaComponent:0.7f]] forState:UIControlStateHighlighted];
 }
 
 - (IBAction)signUpButtonTapped:(UIButton *)sender {
@@ -53,6 +55,13 @@
             [alert show];
         }
     }];
+}
+//to remove keyboard
+- (BOOL)textFieldShouldReturn:(UITextField *)textField {
+    if (textField == self.passwordTextField) {
+        [textField resignFirstResponder];
+    }
+    return NO;
 }
 
 @end

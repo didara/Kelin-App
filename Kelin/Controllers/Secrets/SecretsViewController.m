@@ -33,6 +33,7 @@
     [self.refreshControl addTarget:self action:@selector(downloadData) forControlEvents:UIControlEventValueChanged];
     
     self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    self.HUD.textLabel.text = @"Келiн собирает секреты";
     [self.HUD showInView:self.view];
     [self downloadData];
 }
@@ -50,6 +51,9 @@
             self.secrets = [objects mutableCopy];
         } else {
 #warning Show an error
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"" delegate:self
+                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
         [self.refreshControl endRefreshing];
         [self.tableView reloadData];

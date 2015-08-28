@@ -41,6 +41,9 @@
             [self.navigationController popViewControllerAnimated:YES];
         } else {
 #warning Show an error
+            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"" delegate:self
+                                                  cancelButtonTitle:@"OK" otherButtonTitles:nil];
+            [alert show];
         }
     }];
 }
