@@ -45,12 +45,12 @@
 		5E50DFE31BA9813900B7E964 /* 8@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD471BA9813600B7E964 /* 8@2x.png */; };
 		5E50DFE41BA9813900B7E964 /* 9@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD481BA9813600B7E964 /* 9@2x.png */; };
 		5E50DFE51BA9813900B7E964 /* 10@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD491BA9813600B7E964 /* 10@2x.png */; };
-		5E50DFE61BA9813900B7E964 /* barbell-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4A1BA9813600B7E964 /* barbell-100.png */; };
-		5E50DFE71BA9813900B7E964 /* baseball-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4B1BA9813600B7E964 /* baseball-100.png */; };
-		5E50DFE81BA9813900B7E964 /* baseball_F@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4C1BA9813600B7E964 /* baseball_F@2x.png */; };
-		5E50DFE91BA9813900B7E964 /* basketball-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4D1BA9813600B7E964 /* basketball-100.png */; };
-		5E50DFEA1BA9813900B7E964 /* basketball_F@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4E1BA9813600B7E964 /* basketball_F@2x.png */; };
-		5E50DFEB1BA9813900B7E964 /* bed_F@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4F1BA9813600B7E964 /* bed_F@2x.png */; };
+		5E50DFE61BA9813900B7E964 /* 11@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4A1BA9813600B7E964 /* 11@2x.png */; };
+		5E50DFE71BA9813900B7E964 /* 12@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4B1BA9813600B7E964 /* 12@2x.png */; };
+		5E50DFE81BA9813900B7E964 /* 13@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4C1BA9813600B7E964 /* 13@2x.png */; };
+		5E50DFE91BA9813900B7E964 /* 14@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4D1BA9813600B7E964 /* 14@2x.png */; };
+		5E50DFEA1BA9813900B7E964 /* 15@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4E1BA9813600B7E964 /* 15@2x.png */; };
+		5E50DFEB1BA9813900B7E964 /* 16@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD4F1BA9813600B7E964 /* 16@2x.png */; };
 		5E50DFEC1BA9813900B7E964 /* belayer-100.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD501BA9813600B7E964 /* belayer-100.png */; };
 		5E50DFED1BA9813900B7E964 /* bell_F@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD511BA9813600B7E964 /* bell_F@2x.png */; };
 		5E50DFEE1BA9813900B7E964 /* billiards_ball_F@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 5E50DD521BA9813600B7E964 /* billiards_ball_F@2x.png */; };
@@ -778,12 +778,12 @@
 		5E50DD471BA9813600B7E964 /* 8@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "8@2x.png"; sourceTree = "<group>"; };
 		5E50DD481BA9813600B7E964 /* 9@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "9@2x.png"; sourceTree = "<group>"; };
 		5E50DD491BA9813600B7E964 /* 10@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "10@2x.png"; sourceTree = "<group>"; };
-		5E50DD4A1BA9813600B7E964 /* barbell-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "barbell-100.png"; sourceTree = "<group>"; };
-		5E50DD4B1BA9813600B7E964 /* baseball-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baseball-100.png"; sourceTree = "<group>"; };
-		5E50DD4C1BA9813600B7E964 /* baseball_F@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "baseball_F@2x.png"; sourceTree = "<group>"; };
-		5E50DD4D1BA9813600B7E964 /* basketball-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basketball-100.png"; sourceTree = "<group>"; };
-		5E50DD4E1BA9813600B7E964 /* basketball_F@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "basketball_F@2x.png"; sourceTree = "<group>"; };
-		5E50DD4F1BA9813600B7E964 /* bed_F@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bed_F@2x.png"; sourceTree = "<group>"; };
+		5E50DD4A1BA9813600B7E964 /* 11@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "11@2x.png"; sourceTree = "<group>"; };
+		5E50DD4B1BA9813600B7E964 /* 12@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "12@2x.png"; sourceTree = "<group>"; };
+		5E50DD4C1BA9813600B7E964 /* 13@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "13@2x.png"; sourceTree = "<group>"; };
+		5E50DD4D1BA9813600B7E964 /* 14@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "14@2x.png"; sourceTree = "<group>"; };
+		5E50DD4E1BA9813600B7E964 /* 15@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "15@2x.png"; sourceTree = "<group>"; };
+		5E50DD4F1BA9813600B7E964 /* 16@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "16@2x.png"; sourceTree = "<group>"; };
 		5E50DD501BA9813600B7E964 /* belayer-100.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "belayer-100.png"; sourceTree = "<group>"; };
 		5E50DD511BA9813600B7E964 /* bell_F@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "bell_F@2x.png"; sourceTree = "<group>"; };
 		5E50DD521BA9813600B7E964 /* billiards_ball_F@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "billiards_ball_F@2x.png"; sourceTree = "<group>"; };
@@ -1639,12 +1639,12 @@
 				5E50DD471BA9813600B7E964 /* 8@2x.png */,
 				5E50DD481BA9813600B7E964 /* 9@2x.png */,
 				5E50DD491BA9813600B7E964 /* 10@2x.png */,
-				5E50DD4A1BA9813600B7E964 /* barbell-100.png */,
-				5E50DD4B1BA9813600B7E964 /* baseball-100.png */,
-				5E50DD4C1BA9813600B7E964 /* baseball_F@2x.png */,
-				5E50DD4D1BA9813600B7E964 /* basketball-100.png */,
-				5E50DD4E1BA9813600B7E964 /* basketball_F@2x.png */,
-				5E50DD4F1BA9813600B7E964 /* bed_F@2x.png */,
+				5E50DD4A1BA9813600B7E964 /* 11@2x.png */,
+				5E50DD4B1BA9813600B7E964 /* 12@2x.png */,
+				5E50DD4C1BA9813600B7E964 /* 13@2x.png */,
+				5E50DD4D1BA9813600B7E964 /* 14@2x.png */,
+				5E50DD4E1BA9813600B7E964 /* 15@2x.png */,
+				5E50DD4F1BA9813600B7E964 /* 16@2x.png */,
 				5E50DD501BA9813600B7E964 /* belayer-100.png */,
 				5E50DD511BA9813600B7E964 /* bell_F@2x.png */,
 				5E50DD521BA9813600B7E964 /* billiards_ball_F@2x.png */,
@@ -2486,7 +2486,7 @@
 				5E50E0421BA9813900B7E964 /* Fill 127.png in Resources */,
 				5E50E1BD1BA9813900B7E964 /* icon-47-gibbous-moon@2x.png in Resources */,
 				5E50E0441BA9813900B7E964 /* Fill 129.png in Resources */,
-				5E50DFE71BA9813900B7E964 /* baseball-100.png in Resources */,
+				5E50DFE71BA9813900B7E964 /* 12@2x.png in Resources */,
 				5E50E18E1BA9813900B7E964 /* icon-36-worried-face-teeth@2x.png in Resources */,
 				5E50E17D1BA9813900B7E964 /* icon-32-sunset@2x.png in Resources */,
 				5E50E1D11BA9813900B7E964 /* icon-52-barometer@2x.png in Resources */,
@@ -2595,7 +2595,7 @@
 				5E50E0691BA9813900B7E964 /* Fill 162.png in Resources */,
 				5E50E07C1BA9813900B7E964 /* Fill 18.png in Resources */,
 				5E50E2721BA9813900B7E964 /* weightlift-100.png in Resources */,
-				5E50DFEB1BA9813900B7E964 /* bed_F@2x.png in Resources */,
+				5E50DFEB1BA9813900B7E964 /* 16@2x.png in Resources */,
 				5E50E0781BA9813900B7E964 /* Fill 176.png in Resources */,
 				5E50E0751BA9813900B7E964 /* Fill 173.png in Resources */,
 				5E50E02A1BA9813900B7E964 /* Fill 105.png in Resources */,
@@ -2725,7 +2725,7 @@
 				5E50E0211BA9813900B7E964 /* equalizer_F@2x.png in Resources */,
 				5E50E0AA1BA9813900B7E964 /* Fill 221.png in Resources */,
 				5E50E2611BA9813900B7E964 /* tea_cup_F@2x.png in Resources */,
-				5E50DFE91BA9813900B7E964 /* basketball-100.png in Resources */,
+				5E50DFE91BA9813900B7E964 /* 14@2x.png in Resources */,
 				5E50E0591BA9813900B7E964 /* Fill 148.png in Resources */,
 				5E50E2261BA9813900B7E964 /* minus_user_F@2x.png in Resources */,
 				5E50DFF11BA9813900B7E964 /* birthday_cake_F@2x.png in Resources */,
@@ -2741,7 +2741,7 @@
 				5E50E1891BA9813900B7E964 /* icon-35-two-fingers-swipe-up@2x.png in Resources */,
 				5E50E0741BA9813900B7E964 /* Fill 172.png in Resources */,
 				5E50E1361BA9813900B7E964 /* icon-16-two-fingers-resize-in@2x.png in Resources */,
-				5E50DFEA1BA9813900B7E964 /* basketball_F@2x.png in Resources */,
+				5E50DFEA1BA9813900B7E964 /* 15@2x.png in Resources */,
 				5E50E0E51BA9813900B7E964 /* Fill 76.png in Resources */,
 				5E50E0031BA9813900B7E964 /* cheers_F@2x.png in Resources */,
 				5E50E0821BA9813900B7E964 /* Fill 185.png in Resources */,
@@ -2819,12 +2819,12 @@
 				5E50E15C1BA9813900B7E964 /* icon-25-angry-face-eyebrows@2x.png in Resources */,
 				5E50E0A41BA9813900B7E964 /* Fill 216.png in Resources */,
 				5E50E1AE1BA9813900B7E964 /* icon-43-wind@2x.png in Resources */,
-				5E50DFE81BA9813900B7E964 /* baseball_F@2x.png in Resources */,
+				5E50DFE81BA9813900B7E964 /* 13@2x.png in Resources */,
 				5E50E24A1BA9813900B7E964 /* regular_biking-100.png in Resources */,
 				5E50E16C1BA9813900B7E964 /* icon-29-move@2x.png in Resources */,
 				5E50E2471BA9813900B7E964 /* pulley-100.png in Resources */,
 				5E50E2011BA9813900B7E964 /* icon-8-two-fingers-swipe-left@2x.png in Resources */,
-				5E50DFE61BA9813900B7E964 /* barbell-100.png in Resources */,
+				5E50DFE61BA9813900B7E964 /* 11@2x.png in Resources */,
 				5E50E1C61BA9813900B7E964 /* icon-49-soccer-shoe@2x.png in Resources */,
 				5E50E1151BA9813900B7E964 /* icecream_corn_F@2x.png in Resources */,
 				5E50E1621BA9813900B7E964 /* icon-26-thumb-finger-tap@2x.png in Resources */,
