@@ -13,11 +13,13 @@
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
 #import "UIView+AYUtils.h"
+#import <UIScrollView+InfiniteScroll.h>
 
 @interface SecretsViewController ()
 
-@property (nonatomic) NSArray *secrets;
+@property (nonatomic) NSMutableArray *secrets;
 @property (nonatomic) JGProgressHUD *HUD;
+@property (nonatomic) NSInteger currentSkip;
 
 @end
 
@@ -36,14 +38,42 @@
     self.HUD.textLabel.text = @"Келiн собирает секреты";
     [self.HUD showInView:self.view];
     [self downloadData];
+    
+    self.tableView.infiniteScrollIndicatorStyle = UIActivityIndicatorViewStyleWhite;
+    
+    __weak SecretsViewController *weakSelf = self;
+    
+    [self.tableView addInfiniteScrollWithHandler:^(UITableView* tableView) {
+
+        PFQuery *query = [PFQuery queryWithClassName:@"Secrets"];
+        [query orderByDescending:@"updatedAt"];
+        query.limit = 100;
+        query.skip = weakSelf.currentSkip;
+        
+        [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+            
+            weakSelf.currentSkip += 100;
+            
+            if (!error) {
+              
+                [weakSelf.secrets addObjectsFromArray:[objects mutableCopy]];
+            }
+            
+            [weakSelf.tableView reloadData];
+            
+            [tableView finishInfiniteScroll];
+        }];
+    }];
 }
 
 #pragma mark Private
 
 - (void)downloadData {
     PFQuery *query = [PFQuery queryWithClassName:@"Secrets"];
+    query.limit = 100;
     [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
+        self.currentSkip += 100;
         if (!error) {
             if ([self.HUD isVisible]) {
                 [self.HUD dismissAnimated:YES];
