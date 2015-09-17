@@ -7,6 +7,7 @@
 //
 
 #import "UIColor+AYHooks.h"
+#define MAKEBYTE(_VALUE_) (int)(_VALUE_ * 0xFF) & 0xFF
 
 @implementation UIColor (AYHooks)
 
@@ -168,6 +169,154 @@
     CGFloat blue = b1 * beta + b2 * alpha2;
     CGFloat alpha = a1 * beta + a2 * alpha2;
     return [UIColor colorWithRed:red green:green blue:blue alpha:alpha];
+}
+
+CGColorSpaceRef DeviceRGBSpace()
+{
+    static CGColorSpaceRef rgbSpace = NULL;
+    if (rgbSpace == NULL)
+        rgbSpace = CGColorSpaceCreateDeviceRGB();
+    return rgbSpace;
+}
+
+CGColorSpaceRef DeviceGraySpace()
+{
+    static CGColorSpaceRef graySpace = NULL;
+    if (graySpace == NULL)
+        graySpace = CGColorSpaceCreateDeviceGray();
+    return graySpace;
+}
+
+- (CGColorSpaceModel) colorSpaceModel
+{
+    return CGColorSpaceGetModel(CGColorGetColorSpace(self.CGColor));
+}
+
+
+- (BOOL) canProvideRGBComponents
+{
+    switch (self.colorSpaceModel)
+    {
+        case kCGColorSpaceModelRGB:
+        case kCGColorSpaceModelMonochrome:
+            return YES;
+        default:
+            return NO;
+    }
+}
+
+- (BOOL) usesMonochromeColorspace
+{
+    return (self.colorSpaceModel == kCGColorSpaceModelMonochrome);
+}
+
+- (CGFloat) red
+{
+    NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -red");
+    CGFloat r = 0.0f;
+    
+    switch (self.colorSpaceModel)
+    {
+        case kCGColorSpaceModelRGB:
+            [self getRed:&r green:NULL blue:NULL alpha:NULL];
+            break;
+        case kCGColorSpaceModelMonochrome:
+            [self getWhite:&r alpha:NULL];
+        default:
+            break;
+    }
+    
+    return r;
+}
+
+- (CGFloat) green
+{
+    NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -green");
+    CGFloat g = 0.0f;
+    
+    switch (self.colorSpaceModel)
+    {
+        case kCGColorSpaceModelRGB:
+            [self getRed:NULL green:&g blue:NULL alpha:NULL];
+            break;
+        case kCGColorSpaceModelMonochrome:
+            [self getWhite:&g alpha:NULL];
+        default:
+            break;
+    }
+    
+    return g;
+}
+
+- (CGFloat) blue
+{
+    NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -blue");
+    CGFloat b = 0.0f;
+    
+    switch (self.colorSpaceModel)
+    {
+        case kCGColorSpaceModelRGB:
+            [self getRed:NULL green:NULL blue:&b alpha:NULL];
+            break;
+        case kCGColorSpaceModelMonochrome:
+            [self getWhite:&b alpha:NULL];
+        default:
+            break;
+    }
+    
+    return b;
+}
+
+- (CGFloat) alpha
+{
+    NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -alpha");
+    CGFloat a = 0.0f;
+    
+    switch (self.colorSpaceModel)
+    {
+        case kCGColorSpaceModelRGB:
+            [self getRed:NULL green:NULL blue:NULL alpha:&a];
+            break;
+        case kCGColorSpaceModelMonochrome:
+            [self getWhite:NULL alpha:&a];
+        default:
+            break;
+    }
+    
+    return a;
+}
+
+- (CGFloat) white
+{
+    NSAssert(self.usesMonochromeColorspace, @"Must be a Monochrome color to use -white");
+    
+    CGFloat w;
+    [self getWhite:&w alpha:NULL];
+    return w;
+}
+
+- (Byte) redByte { return MAKEBYTE(self.red); }
+- (Byte) greenByte { return MAKEBYTE(self.green); }
+- (Byte) blueByte { return MAKEBYTE(self.blue); }
+- (Byte) alphaByte { return MAKEBYTE(self.alpha); }
+- (Byte) whiteByte { return MAKEBYTE(self.white); };
+
+- (NSString *) hexStringValue
+{
+    NSAssert(self.canProvideRGBComponents, @"Must be an RGB color to use -hexStringValue");
+    NSString *result;
+    switch (self.colorSpaceModel)
+    {
+        case kCGColorSpaceModelRGB:
+            result = [NSString stringWithFormat:@"%02X%02X%02X", self.redByte, self.greenByte, self.blueByte];
+            break;
+        case kCGColorSpaceModelMonochrome:
+            result = [NSString stringWithFormat:@"%02X%02X%02X", self.whiteByte, self.whiteByte, self.whiteByte];
+            break;
+        default:
+            result = nil;
+    }
+    return result;
 }
 
 @end

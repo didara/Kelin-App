@@ -22,5 +22,5 @@
 - (BOOL)isContrastingColor:(UIColor*)color;
 - (instancetype)inversedColor;
 - (instancetype)blendWithColor:(UIColor *)color2 alpha:(CGFloat)alpha2;
-
+- (NSString *) hexStringValue;
 @end

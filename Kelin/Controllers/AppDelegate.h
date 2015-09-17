@@ -8,6 +8,9 @@
 
 #import <UIKit/UIKit.h>
 
+static NSString *kKAPAvatarImageIdentifierKey = @"kKAPAvatarImageIdentifierKey";
+static NSString *kKAPAvatarColorIdentifierKey = @"kKAPAvatarColorIdentifierKey";
+
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 
 @property (nonatomic) UIWindow *window;

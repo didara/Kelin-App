@@ -14,7 +14,10 @@
 #import "UIFont+Sizes.h"
 #import "UIView+AYUtils.h"
 #import <UIScrollView+InfiniteScroll.h>
-
+#import "AppDelegate.h"
+#import "SecretTableViewCell.h"
+#import "UIColor+AYHooks.h"
+#import "UIImage+AYAdditions.h"
 @interface SecretsViewController ()
 
 @property (nonatomic) NSMutableArray *secrets;
@@ -30,7 +33,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    self.tableView.separatorColor = [UIColor clearColor];
+    //self.tableView.separatorColor = [UIColor clearColor];
     self.refreshControl.tintColor = [UIColor darkGrayColor];
     [self.refreshControl addTarget:self action:@selector(downloadData) forControlEvents:UIControlEventValueChanged];
     
@@ -38,6 +41,8 @@
     self.HUD.textLabel.text = @"Келiн собирает секреты";
     [self.HUD showInView:self.view];
     [self downloadData];
+    
+
     
     self.tableView.infiniteScrollIndicatorStyle = UIActivityIndicatorViewStyleWhite;
     
@@ -101,11 +106,30 @@
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+    
+    SecretTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"TableCell" forIndexPath:indexPath];
+    
+    PFObject *secret = self.secrets[indexPath.row];
+    
     cell.textLabel.numberOfLines = 0;
     cell.textLabel.textColor = [UIColor darkGrayColor];
     cell.textLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
-    cell.textLabel.text = self.secrets[indexPath.row][@"story"];
+    cell.textLabel.text = secret[@"story"];
+    
+    
+    if(secret[@"color"]){
+        NSString *hexColor = secret[@"color"];
+        cell.imageView.backgroundColor = [UIColor colorWithHexString:hexColor];
+    }
+    else{
+        cell.imageView.backgroundColor = [UIColor clearColor];
+    }
+    if(secret[@"image"]){
+        NSString *imageName = secret[@"image"];
+        cell.imageView.image = [[UIImage imageNamed:imageName] imageWithColor:[UIColor whiteColor]];
+    }
+    
+    
     return cell;
 }
 
@@ -113,7 +137,7 @@
     NSMutableParagraphStyle *paragraphStyle = [NSMutableParagraphStyle new];
     paragraphStyle.lineBreakMode = NSLineBreakByWordWrapping;
     return [self.secrets[indexPath.row][@"story"]
-                        boundingRectWithSize:CGSizeMake(self.view.width - 40, 0)
+                        boundingRectWithSize:CGSizeMake(self.view.width - 40 - kKAPImageViewSize - 2*kKAPImageViewMargin, 0)
                         options:NSStringDrawingUsesLineFragmentOrigin
                         attributes:@{ NSParagraphStyleAttributeName:paragraphStyle.copy,
                                       NSFontAttributeName : [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]] }

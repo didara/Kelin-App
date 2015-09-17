@@ -12,5 +12,6 @@
 
 + (UIImage *)imageWithColor:(UIColor *)color;
 + (UIImage *)convertViewToImage:(UIView *)view;
+- (UIImage *)imageWithColor:(UIColor *)color;
 
 @end

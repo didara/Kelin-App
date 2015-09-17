@@ -265,6 +265,11 @@
                                 <action selector="logoutButtonPressed:" destination="3Bi-9u-VKr" id="IJ2-OF-oSC"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" image="instagram_icon" id="n3F-Id-c7j">
+                            <connections>
+                                <action selector="instagramButtonDidPress:" destination="3Bi-9u-VKr" id="byH-N5-Ntx"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
@@ -283,12 +288,13 @@
         <scene sceneID="mzz-lM-fhr">
             <objects>
                 <tableViewController title="Secrets View Controller" id="J3L-tK-Tq2" customClass="SecretsViewController" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="182" sectionHeaderHeight="22" sectionFooterHeight="22" id="z9W-e7-YSy">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="182" sectionHeaderHeight="22" sectionFooterHeight="22" id="z9W-e7-YSy">
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="separatorColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
                         <prototypes>
-                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" id="va4-IK-vyG">
+                            <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" id="va4-IK-vyG" customClass="SecretTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="va4-IK-vyG" id="3dz-ah-NIC">
                                     <autoresizingMask key="autoresizingMask"/>
@@ -843,6 +849,7 @@
         <image name="RingIcon" width="88" height="87"/>
         <image name="SecretsIcon" width="320" height="123"/>
         <image name="TestIcon" width="320" height="127"/>
+        <image name="instagram_icon" width="39" height="39"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

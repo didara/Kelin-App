@@ -35,5 +35,14 @@
         [self performSegueWithIdentifier:@"goToAuthorization" sender:nil];
     }];
 }
+- (IBAction)instagramButtonDidPress:(id)sender {
+    NSURL *instaURL = [[NSURL alloc] initWithString:@"instagram://user?username=the_kelin"];
+    
+    if (![[UIApplication sharedApplication] canOpenURL:instaURL] ) {
+        instaURL = [[NSURL alloc] initWithString:@"http://instagram.com/the_kelin"];
+    }
+    
+    [[UIApplication sharedApplication] openURL:instaURL];
+}
 
 @end

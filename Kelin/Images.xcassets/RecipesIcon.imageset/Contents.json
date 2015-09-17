@@ -3,17 +3,17 @@
     {
       "idiom" : "universal",
       "scale" : "1x",
-      "filename" : "menu-item-1 copy.png"
+      "filename" : "RecipesIcon.png"
     },
     {
       "idiom" : "universal",
       "scale" : "2x",
-      "filename" : "menu-item-1 copy@2x.png"
+      "filename" : "RecipesIcon@2x.png"
     },
     {
       "idiom" : "universal",
       "scale" : "3x",
-      "filename" : "menu-item-1 copy@3x.png"
+      "filename" : "RecipesIcon@3x.png"
     }
   ],
   "info" : {

@@ -11,6 +11,10 @@
 #import <Fabric/Fabric.h>
 #import <Crashlytics/Crashlytics.h>
 #import <UIFont+OpenSans.h>
+#import "UIColor+AYHooks.h"
+
+
+static NSInteger kKAPNumberOfAvailableAvatars = 640;
 
 @interface AppDelegate ()
 
@@ -44,7 +48,37 @@
     self.window.rootViewController = self.navigationController;
     [self.window makeKeyAndVisible];
     
+    [self generateRandomAvatar];
     return YES;
+}
+
+- (void) generateRandomAvatar{
+    
+    
+    
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:kKAPAvatarImageIdentifierKey]){
+        NSUInteger rand = arc4random_uniform((u_int32_t)kKAPNumberOfAvailableAvatars) + 1;
+        
+        NSString *fileName = [NSString stringWithFormat:@"%i@2x.png", (int)rand];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:fileName forKey:kKAPAvatarImageIdentifierKey];
+    }
+    
+    if(![[NSUserDefaults standardUserDefaults] objectForKey:kKAPAvatarColorIdentifierKey]){
+        
+        CGFloat redLevel    = ((double)arc4random() / 0x100000000);
+        CGFloat greenLevel  = ((double)arc4random() / 0x100000000);
+        CGFloat blueLevel   = ((double)arc4random() / 0x100000000);
+        
+        UIColor *color = [UIColor colorWithRed:redLevel
+                                         green:greenLevel
+                                          blue:blueLevel
+                                         alpha:1.0f];
+        
+        NSString *colorName = [color hexStringValue];
+        
+        [[NSUserDefaults standardUserDefaults] setObject:colorName forKey:kKAPAvatarColorIdentifierKey];
+    }
 }
 
 - (void)applicationWillResignActive:(UIApplication *)application {
