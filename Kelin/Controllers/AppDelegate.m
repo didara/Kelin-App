@@ -12,7 +12,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <UIFont+OpenSans.h>
 #import "UIColor+AYHooks.h"
-
+#import "REFrostedViewController.h"
 
 static NSInteger kKAPNumberOfAvailableAvatars = 640;
 

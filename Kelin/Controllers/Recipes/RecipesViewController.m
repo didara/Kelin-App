@@ -33,7 +33,7 @@
     self.tableView.separatorInset = UIEdgeInsetsZero;
     self.tableView.layoutMargins = UIEdgeInsetsZero;
     
-    [self getDataFromParseFromLocalDataStore:YES];
+    [self getDataFromParseFromLocalDataStore:NO];
 }
 
 #pragma mark Private

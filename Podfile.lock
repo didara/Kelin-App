@@ -8,6 +8,7 @@ PODS:
   - OpenSans (1.0.3)
   - Parse (1.8.1):
     - Bolts/Tasks (>= 1.2.0)
+  - REFrostedViewController (2.4.8)
   - UIScrollView-InfiniteScroll (0.7.3)
   - ZLSwipeableView (0.0.7)
 
@@ -17,6 +18,7 @@ DEPENDENCIES:
   - MGInstagram
   - OpenSans
   - Parse
+  - REFrostedViewController (~> 2.4)
   - UIScrollView-InfiniteScroll
   - ZLSwipeableView
 
@@ -28,6 +30,7 @@ SPEC CHECKSUMS:
   MGInstagram: c85a061e25b053ad1cb1227675e238ce6cc50221
   OpenSans: 33078846463eae780aa5f82986b51cce085f970d
   Parse: 2155953b1565494095d5fa5c83b3c77f2c677c09
+  REFrostedViewController: a893b4979ba1f200c547aef9ff4c3fd5a18f5923
   UIScrollView-InfiniteScroll: b6c7d6d155dca7f9c5dd43813ecffeb301b3d50c
   ZLSwipeableView: acf50179911c5f1e6150e0a279561344fbcda839
 

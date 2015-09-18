@@ -43,7 +43,6 @@
     _imageView.layer.masksToBounds = YES;
     _imageView.layer.cornerRadius = kKAPImageViewSize / 2.f;
     
-    
     [self.contentView addSubview:_imageView];
     
     _textLabel = [UILabel new];
@@ -52,6 +51,13 @@
     _textLabel.textColor = [UIColor darkGrayColor];
     
     [self.contentView addSubview:_textLabel];
+    
+    _timeLabel = [UILabel new];
+    _timeLabel.translatesAutoresizingMaskIntoConstraints = NO;
+    _timeLabel.font = [UIFont systemFontOfSize:10.0f];
+    _timeLabel.textColor = [UIColor lightGrayColor];
+    
+    [self.contentView addSubview:_timeLabel];
 }
 
 - (void) layoutSubviews {
@@ -84,6 +90,17 @@
                                                                              options:0
                                                                              metrics:metrics
                                                                                views:NSDictionaryOfVariableBindings(_imageView, _textLabel)]];
+    
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_timeLabel]"
+                                                                             options:0
+                                                                             metrics:metrics
+                                                                               views:NSDictionaryOfVariableBindings(_timeLabel)]];
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_timeLabel]-5-|"
+                                                                             options:0
+                                                                             metrics:metrics
+                                                                               views:NSDictionaryOfVariableBindings(_timeLabel)]];
+    
+    
 }
 
 @end

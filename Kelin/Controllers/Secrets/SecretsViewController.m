@@ -18,6 +18,9 @@
 #import "SecretTableViewCell.h"
 #import "UIColor+AYHooks.h"
 #import "UIImage+AYAdditions.h"
+
+#import "NSDate+KZUtils.h"
+
 @interface SecretsViewController ()
 
 @property (nonatomic) NSMutableArray *secrets;
@@ -129,6 +132,10 @@
         cell.imageView.image = [[UIImage imageNamed:imageName] imageWithColor:[UIColor whiteColor]];
     }
     
+    
+    NSDate *date = secret.createdAt;
+    
+    cell.timeLabel.text = [date timeAgoSimple];
     
     return cell;
 }

@@ -13,4 +13,6 @@ static CGFloat kKAPImageViewMargin = 20.f;
 
 @interface SecretTableViewCell : UITableViewCell
 
+@property (nonatomic) UILabel *timeLabel;
+
 @end

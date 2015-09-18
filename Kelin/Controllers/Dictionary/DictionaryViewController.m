@@ -38,7 +38,7 @@
     self.swipeableView.delegate = self;
     self.swipeableView.backgroundColor = [UIColor clearColor];
     
-    [self getDataFromParseFromLocalDataStore:YES];
+    [self getDataFromParseFromLocalDataStore:NO];
 }
 
 #pragma mark Private
