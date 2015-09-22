@@ -8,11 +8,13 @@
 
 #import <UIKit/UIKit.h>
 
-static CGFloat kKAPImageViewSize = 30.f;
-static CGFloat kKAPImageViewMargin = 20.f;
+static CGFloat kKAPImageViewContainerSize = 40.f;
+static CGFloat kKAPImageViewMargin = 10.f;
+static CGFloat kKAPImageViewSize = 24.f;
 
 @interface SecretTableViewCell : UITableViewCell
 
 @property (nonatomic) UILabel *timeLabel;
+@property (nonatomic) UIView  *imageViewContainer;
 
 @end

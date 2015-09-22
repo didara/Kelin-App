@@ -37,12 +37,14 @@
                                [NSCharacterSet whitespaceCharacterSet]];
     
     if((!trimmedString) || ([trimmedString length] == 0)){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
-                                                        message:@"Пустой текст"
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops..."
+                                                        message:@"'Келинка, cообщение не может быть пустым!' -Баскуда"
                                                        delegate:self
                                               cancelButtonTitle:@"OK"
                                               otherButtonTitles:nil];
         [alert show];
+        
+        return;
     }
     
     

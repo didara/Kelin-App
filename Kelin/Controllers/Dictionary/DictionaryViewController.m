@@ -49,7 +49,7 @@
         [query fromLocalDatastore];
     } else if (!self.HUD) {
         self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleLight];
-        self.HUD.textLabel.text = @"Келiн пошла за продуктами";
+        self.HUD.textLabel.text = @"Келiн считает галоши родственников";
         [self.HUD showInView:self.view];
     }
     [query findObjectsInBackgroundWithBlock:^(NSArray *words, NSError *error) {

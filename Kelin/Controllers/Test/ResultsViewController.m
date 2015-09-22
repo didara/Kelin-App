@@ -17,6 +17,7 @@
 #import "UIView+AYUtils.h"
 
 static CGSize const kResultsSharingViewSize = {400, 400};
+static NSString *kKAPInstgramCaption = @"Я прошла #kelin тест! @the_kelin";
 
 @interface ResultsViewController ()
 
@@ -96,8 +97,10 @@ static CGSize const kResultsSharingViewSize = {400, 400};
 - (IBAction)shareButtonTapped:(UIButton *)sender {
     UIImage *image = [self convertViewToImage:[self viewForSharing]];
     if ([MGInstagram isAppInstalled]) {
-#warning Add a comment to the post "#kelinapp @the_kelin" or something like that
-        [self.instagramPoster postImage:image inView:self.view];
+//#warning Add a comment to the post "#kelinapp @the_kelin" or something like that
+        
+        [self.instagramPoster postImage:image withCaption:kKAPInstgramCaption inView:self.view];
+        
     } else {
 #warning Show an error
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Пожалуйста, проверьте, что у вас установлено приложение Инстаграма." delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];

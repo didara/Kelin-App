@@ -14,7 +14,7 @@
 #import "UIColor+AYHooks.h"
 #import "REFrostedViewController.h"
 
-static NSInteger kKAPNumberOfAvailableAvatars = 640;
+static NSInteger kKAPNumberOfAvailableAvatars = 777;
 
 @interface AppDelegate ()
 
@@ -59,23 +59,16 @@ static NSInteger kKAPNumberOfAvailableAvatars = 640;
     if(![[NSUserDefaults standardUserDefaults] objectForKey:kKAPAvatarImageIdentifierKey]){
         NSUInteger rand = arc4random_uniform((u_int32_t)kKAPNumberOfAvailableAvatars) + 1;
         
-        NSString *fileName = [NSString stringWithFormat:@"%i@2x.png", (int)rand];
+        NSString *fileName = [NSString stringWithFormat:@"animal%i.png", (int)rand];
         
         [[NSUserDefaults standardUserDefaults] setObject:fileName forKey:kKAPAvatarImageIdentifierKey];
     }
     
     if(![[NSUserDefaults standardUserDefaults] objectForKey:kKAPAvatarColorIdentifierKey]){
         
-        CGFloat redLevel    = ((double)arc4random() / 0x100000000);
-        CGFloat greenLevel  = ((double)arc4random() / 0x100000000);
-        CGFloat blueLevel   = ((double)arc4random() / 0x100000000);
+        NSArray *colors = @[@"54c7fc", @"ffcd00", @"ff9600", @"ff2851", @"0076ff", @"44dd5e", @"ff3824", @"8e8e93", @"1abc9c", @"8e44ad", @"e74c3c", @"2c3e50", @"f1c40f", @"e67e22"];
         
-        UIColor *color = [UIColor colorWithRed:redLevel
-                                         green:greenLevel
-                                          blue:blueLevel
-                                         alpha:1.0f];
-        
-        NSString *colorName = [color hexStringValue];
+        NSString *colorName = colors[arc4random_uniform((u_int32_t)[colors count])];;
         
         [[NSUserDefaults standardUserDefaults] setObject:colorName forKey:kKAPAvatarColorIdentifierKey];
     }

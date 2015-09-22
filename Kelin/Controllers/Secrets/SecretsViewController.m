@@ -36,7 +36,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-    //self.tableView.separatorColor = [UIColor clearColor];
+    self.tableView.separatorColor = [UIColor clearColor];
     self.refreshControl.tintColor = [UIColor darkGrayColor];
     [self.refreshControl addTarget:self action:@selector(downloadData) forControlEvents:UIControlEventValueChanged];
     
@@ -79,9 +79,11 @@
 - (void)downloadData {
     PFQuery *query = [PFQuery queryWithClassName:@"Secrets"];
     query.limit = 100;
+    
     [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.currentSkip += 100;
+         self.tableView.separatorColor = [UIColor lightGrayColor];
         if (!error) {
             if ([self.HUD isVisible]) {
                 [self.HUD dismissAnimated:YES];
@@ -122,10 +124,11 @@
     
     if(secret[@"color"]){
         NSString *hexColor = secret[@"color"];
-        cell.imageView.backgroundColor = [UIColor colorWithHexString:hexColor];
+        cell.imageViewContainer.backgroundColor = [UIColor colorWithHexString:hexColor];
     }
     else{
-        cell.imageView.backgroundColor = [UIColor clearColor];
+        cell.imageViewContainer.backgroundColor = [UIColor clearColor];
+        
     }
     if(secret[@"image"]){
         NSString *imageName = secret[@"image"];

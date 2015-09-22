@@ -8,6 +8,10 @@
 
 #import "SecretTableViewCell.h"
 
+@interface SecretTableViewCell()
+
+@end
+
 
 @implementation SecretTableViewCell
 
@@ -37,13 +41,21 @@
 }
 
 - (void) initialize{
+    
+    _imageViewContainer = [UIView new];
+    _imageViewContainer.translatesAutoresizingMaskIntoConstraints = NO;
+    _imageViewContainer.layer.masksToBounds = YES;
+    _imageViewContainer.layer.cornerRadius = kKAPImageViewContainerSize / 2.f;
+    
+    [self.contentView addSubview:_imageViewContainer];
+    
     _imageView = [UIImageView new];
     _imageView.translatesAutoresizingMaskIntoConstraints = NO;
     _imageView.contentMode = UIViewContentModeScaleAspectFit;
     _imageView.layer.masksToBounds = YES;
     _imageView.layer.cornerRadius = kKAPImageViewSize / 2.f;
     
-    [self.contentView addSubview:_imageView];
+    [_imageViewContainer addSubview:_imageView];
     
     _textLabel = [UILabel new];
     _textLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -64,18 +76,45 @@
     [super layoutSubviews];
     
     NSDictionary *metrics = @{@"kKAPImageViewSize" : @(kKAPImageViewSize),
-                              @"kKAPImageViewMargin" : @(kKAPImageViewMargin)};
+                              @"kKAPImageViewMargin" : @(kKAPImageViewMargin),
+                              @"kKAPImageViewContainerSize" : @(kKAPImageViewContainerSize)};
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_imageView(kKAPImageViewSize)]"
-                                                                             options:0
-                                                                             metrics:metrics
-                                                                               views:NSDictionaryOfVariableBindings(_imageView)]];
     
-    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_imageView
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_imageViewContainer(kKAPImageViewContainerSize)]"
+                                                                                options:0
+                                                                                metrics:metrics
+                                                                                  views:NSDictionaryOfVariableBindings(_imageViewContainer)]];
+    
+    [self.contentView addConstraint:[NSLayoutConstraint constraintWithItem:_imageViewContainer
                                                                  attribute:NSLayoutAttributeCenterY
                                                                  relatedBy:NSLayoutRelationEqual
                                                                     toItem:self.contentView
                                                                  attribute:NSLayoutAttributeCenterY
+                                                                multiplier:1.0f
+                                                                  constant:0.0f]];
+    
+    [_imageViewContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_imageView(kKAPImageViewSize)]"
+                                                                             options:0
+                                                                             metrics:metrics
+                                                                               views:NSDictionaryOfVariableBindings(_imageView)]];
+    [_imageViewContainer addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"H:[_imageView(kKAPImageViewSize)]"
+                                                                                options:0
+                                                                                metrics:metrics
+                                                                                  views:NSDictionaryOfVariableBindings(_imageView)]];
+    
+    [_imageViewContainer addConstraint:[NSLayoutConstraint constraintWithItem:_imageView
+                                                                 attribute:NSLayoutAttributeCenterY
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_imageViewContainer
+                                                                 attribute:NSLayoutAttributeCenterY
+                                                                multiplier:1.0f
+                                                                  constant:0.0f]];
+    
+    [_imageViewContainer addConstraint:[NSLayoutConstraint constraintWithItem:_imageView
+                                                                 attribute:NSLayoutAttributeCenterX
+                                                                 relatedBy:NSLayoutRelationEqual
+                                                                    toItem:_imageViewContainer
+                                                                 attribute:NSLayoutAttributeCenterX
                                                                 multiplier:1.0f
                                                                   constant:0.0f]];
     
@@ -84,14 +123,14 @@
                                                                              metrics:metrics
                                                                                views:NSDictionaryOfVariableBindings(_textLabel)]];
     
-    NSString *visualFormat = @"H:|-kKAPImageViewMargin-[_imageView(kKAPImageViewSize)]-kKAPImageViewMargin-[_textLabel]-20-|";
+    NSString *visualFormat = @"H:|-kKAPImageViewMargin-[_imageViewContainer(kKAPImageViewContainerSize)]-kKAPImageViewMargin-[_textLabel]-20-|";
     
     [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:visualFormat
                                                                              options:0
                                                                              metrics:metrics
-                                                                               views:NSDictionaryOfVariableBindings(_imageView, _textLabel)]];
+                                                                               views:NSDictionaryOfVariableBindings(_imageViewContainer, _textLabel)]];
     
-    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:|-5-[_timeLabel]"
+    [self.contentView addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:@"V:[_timeLabel]-5-|"
                                                                              options:0
                                                                              metrics:metrics
                                                                                views:NSDictionaryOfVariableBindings(_timeLabel)]];

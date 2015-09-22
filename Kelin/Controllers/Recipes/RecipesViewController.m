@@ -86,6 +86,8 @@
     cell.titleLabel.text = self.recipes[indexPath.row][@"intro"];
     cell.titleLabel.font = [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]];
     cell.thumbImage.clipsToBounds = YES;
+    
+    cell.thumbImage.image = [UIImage imageNamed:@"placeholder.jpg"];
     [self.recipes[indexPath.row][@"Image"] getDataInBackgroundWithBlock:^(NSData *imageData, NSError *error) {
         if (!error) {
             UIImage *image = [UIImage imageWithData:imageData];

@@ -14,7 +14,7 @@
 #import "ResultsViewController.h"
 #import "UIFont+Sizes.h"
 #import <UIFont+OpenSans.h>
-
+#import "UIColor+AYHooks.h"
 @interface TestViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *optionAButton;
@@ -140,7 +140,7 @@
     // Loop through the array of buttons and highlight the correct one
     for (UIButton *button in @[self.optionAButton, self.optionBButton, self.optionCButton, self.optionDButton]) {
         if ([button.titleLabel.text isEqualToString:self.correctAnswer]) {
-            button.backgroundColor = [UIColor greenColor];
+            button.backgroundColor = [UIColor colorWithHexString:@"15C077"];
         }
     }
 }

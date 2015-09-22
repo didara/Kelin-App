@@ -200,9 +200,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isn-zo-E20" userLabel="Test Button">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="isn-zo-E20" userLabel="Test Button">
                                 <rect key="frame" x="0.0" y="64" width="320" height="126"/>
-                                <state key="normal" image="TestIcon">
+                                <state key="normal" backgroundImage="TestIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -211,7 +211,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0VZ-C9-J99" userLabel="Recipes Button">
                                 <rect key="frame" x="0.0" y="190" width="320" height="126"/>
-                                <state key="normal" image="RecipesIcon">
+                                <state key="normal" backgroundImage="RecipesIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -220,7 +220,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Xbb-rn-Hxg" userLabel="Dictionary Button">
                                 <rect key="frame" x="0.0" y="442" width="320" height="126"/>
-                                <state key="normal" image="SecretsIcon">
+                                <state key="normal" backgroundImage="SecretsIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -229,7 +229,7 @@
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dvX-dw-4eB" userLabel="Secrets Button">
                                 <rect key="frame" x="0.0" y="316" width="320" height="126"/>
-                                <state key="normal" image="DictionaryIcon">
+                                <state key="normal" backgroundImage="DictionaryIcon">
                                     <color key="titleShadowColor" white="0.5" alpha="1" colorSpace="calibratedWhite"/>
                                 </state>
                                 <connections>
@@ -265,9 +265,9 @@
                                 <action selector="logoutButtonPressed:" destination="3Bi-9u-VKr" id="IJ2-OF-oSC"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" image="instagram_icon" id="n3F-Id-c7j">
+                        <barButtonItem key="rightBarButtonItem" image="instagram" id="cmC-ki-6mz">
                             <connections>
-                                <action selector="instagramButtonDidPress:" destination="3Bi-9u-VKr" id="byH-N5-Ntx"/>
+                                <action selector="instagramButtonDidPress:" destination="3Bi-9u-VKr" id="9s3-84-9AY"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -292,7 +292,7 @@
                         <rect key="frame" x="0.0" y="64" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <color key="separatorColor" red="0.43529411764705883" green="0.44313725490196076" blue="0.47450980392156861" alpha="1" colorSpace="calibratedRGB"/>
+                        <color key="separatorColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <prototypes>
                             <tableViewCell contentMode="scaleToFill" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="TableCell" id="va4-IK-vyG" customClass="SecretTableViewCell">
                                 <autoresizingMask key="autoresizingMask"/>
@@ -849,7 +849,7 @@
         <image name="RingIcon" width="88" height="87"/>
         <image name="SecretsIcon" width="320" height="123"/>
         <image name="TestIcon" width="320" height="127"/>
-        <image name="instagram_icon" width="39" height="39"/>
+        <image name="instagram" width="22" height="22"/>
     </resources>
     <simulatedMetricsContainer key="defaultSimulatedMetrics">
         <simulatedStatusBarMetrics key="statusBar"/>

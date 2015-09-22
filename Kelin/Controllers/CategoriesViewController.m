@@ -24,6 +24,17 @@
 
 #pragma mark Lifecycle
 
+- (void) viewDidLoad{
+    [super viewDidLoad];
+    
+//    NSString *visualFormat = @"V:|-64-[_testButton]-0-[_foodButton(_testButton)]-0-[_dictionaryButton(_testButton)]-0-[_secretsButton(_testButton)]-0-|";
+//    
+//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:visualFormat
+//                                                                      options:0
+//                                                                      metrics:nil
+//                                                                        views:NSDictionaryOfVariableBindings(_testButton, _foodButton, _dictionaryButton, _secretsButton)]];
+}
+
 - (void)viewWillAppear:(BOOL)animated {
     [super viewWillAppear:animated];
     self.navigationItem.backBarButtonItem = [[UIBarButtonItem alloc] initWithTitle:@"" style:UIBarButtonItemStylePlain target:nil action:nil];
