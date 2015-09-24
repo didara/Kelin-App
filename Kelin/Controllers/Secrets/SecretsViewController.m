@@ -79,6 +79,7 @@
 - (void)downloadData {
     PFQuery *query = [PFQuery queryWithClassName:@"Secrets"];
     query.limit = 100;
+    //[query whereKey:@"story" containsString:@"@"];
     
     [query orderByDescending:@"updatedAt"];
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
