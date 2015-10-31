@@ -9,5 +9,6 @@
 #import <UIKit/UIKit.h>
 
 @interface AuthorizationViewController : UIViewController
+@property (weak, nonatomic) IBOutlet UIImageView *backgroundImageView;
 
 @end

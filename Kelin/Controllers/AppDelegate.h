@@ -10,6 +10,9 @@
 
 static NSString *kKAPAvatarImageIdentifierKey = @"kKAPAvatarImageIdentifierKey";
 static NSString *kKAPAvatarColorIdentifierKey = @"kKAPAvatarColorIdentifierKey";
+static NSString *kKAPCurrentCityIdentifierKey = @"kKAPCurrentCityIdentifierKey";
+static NSString *kKAPNicknameIdentifierKey = @"kKAPNicknameIdentifierKey";
+static NSString *kKAPVIPAvatarIdentifierKey = @"kKAPVIPAvatarIdentifierKey";
 
 @interface AppDelegate : UIResponder <UIApplicationDelegate>
 

@@ -16,5 +16,8 @@ static CGFloat kKAPImageViewSize = 24.f;
 
 @property (nonatomic) UILabel *timeLabel;
 @property (nonatomic) UIView  *imageViewContainer;
+@property (nonatomic) BOOL isVIP;
+
+@property (nonatomic) UILabel *usernameLabel;
 
 @end

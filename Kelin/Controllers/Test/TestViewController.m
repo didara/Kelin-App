@@ -168,13 +168,14 @@
         button.enabled = YES;
     }
 }
-
 #pragma mark Actions
 
 - (IBAction)optionButtonPressed:(UIButton *)sender {
     // As you can see, there is no need for four separate methods, one is just enough
     [self resetButtons];
-    sender.backgroundColor = [UIColor colorWithRed:0.753 green:0.753 blue:0.753 alpha:1] /*#c0c0c0*/;
+    //sender.backgroundColor = [UIColor colorWithRed:0.753 green:0.753 blue:0.753 alpha:1] /*#c0c0c0*/;
+    sender.backgroundColor = [UIColor colorWithHexString:@"FF5252"];
+    
     [self highlightCorrect];
     [self checkAnswer:sender];
     [self performSelector:@selector(displayNextQuestion) withObject:nil afterDelay:0.3f];

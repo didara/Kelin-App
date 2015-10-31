@@ -14,6 +14,7 @@
 #import "UIFont+Sizes.h"
 #import "UIImage+AYAdditions.h"
 
+
 @interface AuthorizationViewController ()
 
 @property (weak, nonatomic) IBOutlet UIButton *logInButton;
@@ -33,6 +34,8 @@
         [button setBackgroundImage:[UIImage imageWithColor:[button.backgroundColor colorWithAlphaComponent:0.7f]] forState:UIControlStateNormal];
         [button setBackgroundImage:[UIImage imageWithColor:[[button.backgroundColor darkerColor:0.1f] colorWithAlphaComponent:0.7f]] forState:UIControlStateHighlighted];
     }
+    self.backgroundImageView.layer.masksToBounds = YES;
+    self.backgroundImageView.clipsToBounds = YES;
 }
 
 - (void)viewWillAppear:(BOOL)animated {

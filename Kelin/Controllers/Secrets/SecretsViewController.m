@@ -20,12 +20,21 @@
 #import "UIImage+AYAdditions.h"
 
 #import "NSDate+KZUtils.h"
+#import "StoreManager.h"
+
+typedef NS_ENUM(NSInteger, KelinSecretMode) {
+    KelinSecretModeAll,
+    KelinSecretModeTopSecret
+};
 
 @interface SecretsViewController ()
 
 @property (nonatomic) NSMutableArray *secrets;
 @property (nonatomic) JGProgressHUD *HUD;
 @property (nonatomic) NSInteger currentSkip;
+
+@property (nonatomic) UISegmentedControl *segmentedControl;
+@property (nonatomic) KelinSecretMode mode;
 
 @end
 
@@ -40,9 +49,9 @@
     self.refreshControl.tintColor = [UIColor darkGrayColor];
     [self.refreshControl addTarget:self action:@selector(downloadData) forControlEvents:UIControlEventValueChanged];
     
-    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
-    self.HUD.textLabel.text = @"Келiн собирает секреты";
-    [self.HUD showInView:self.view];
+//    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+//    self.HUD.textLabel.text = @"Келiн собирает секреты";
+//    [self.HUD showInView:self.view];
     [self downloadData];
     
 
@@ -58,6 +67,10 @@
         query.limit = 100;
         query.skip = weakSelf.currentSkip;
         
+        if(self.mode == KelinSecretModeTopSecret){
+            [query whereKey:@"bests" equalTo:@(YES)];
+        }
+        
         [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
             
             weakSelf.currentSkip += 100;
@@ -72,16 +85,43 @@
             [tableView finishInfiniteScroll];
         }];
     }];
+    
+    self.segmentedControl = [UISegmentedControl new];
+    self.segmentedControl.frame = CGRectMake(0, 0, 200, 30);
+    [self.segmentedControl insertSegmentWithTitle:@"Новые" atIndex:0 animated:NO];
+    [self.segmentedControl insertSegmentWithTitle:@"Лучшие" atIndex:1 animated:NO];
+    self.segmentedControl.selectedSegmentIndex = 0;
+    [self.segmentedControl addTarget:self
+                              action:@selector(segmentedControlDidChange:)
+                    forControlEvents:UIControlEventValueChanged];
+    
+    
+    BOOL topSecretAvailable = [[NSUserDefaults standardUserDefaults] boolForKey:kKelinTopSecretIdentifierKey];
+    if(topSecretAvailable){
+        self.navigationItem.titleView = self.segmentedControl;
+    }
+    
 }
 
 #pragma mark Private
 
 - (void)downloadData {
+    
+    self.HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
+    self.HUD.textLabel.text = @"Келiн собирает секреты";
+    [self.HUD showInView:self.view];
+    
     PFQuery *query = [PFQuery queryWithClassName:@"Secrets"];
     query.limit = 100;
     //[query whereKey:@"story" containsString:@"@"];
+    self.currentSkip = 0;
     
     [query orderByDescending:@"updatedAt"];
+    
+    if(self.mode == KelinSecretModeTopSecret){
+        [query whereKey:@"bests" equalTo:@(YES)];
+    }
+    
     [query findObjectsInBackgroundWithBlock:^(NSArray *objects, NSError *error) {
         self.currentSkip += 100;
          self.tableView.separatorColor = [UIColor lightGrayColor];
@@ -136,6 +176,7 @@
         cell.imageView.image = [[UIImage imageNamed:imageName] imageWithColor:[UIColor whiteColor]];
     }
     
+    cell.isVIP = [secret[@"vip"] boolValue];
     
     NSDate *date = secret.createdAt;
     
@@ -153,6 +194,19 @@
                         attributes:@{ NSParagraphStyleAttributeName:paragraphStyle.copy,
                                       NSFontAttributeName : [UIFont openSansFontOfSize:[UIFont mediumTextFontSize]] }
                         context:nil].size.height + 40;
+}
+
+- (void) segmentedControlDidChange: (UISegmentedControl *) control{
+    NSInteger index = control.selectedSegmentIndex;
+    
+    if(index == 0){
+        self.mode = KelinSecretModeAll;
+    }
+    else if(index == 1){
+        self.mode = KelinSecretModeTopSecret;
+    }
+    
+    [self downloadData];
 }
 
 @end

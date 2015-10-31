@@ -14,6 +14,7 @@
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
 #import "UIImage+AYAdditions.h"
+#import "NSString+Utils.h"
 
 @interface LogInViewController () <UITextFieldDelegate>
 
@@ -42,14 +43,42 @@
     HUD.textLabel.text = @"Келiн наливает чай";
     [HUD showInView:self.view];
     self.passwordTextField.secureTextEntry = YES;
-    [PFUser logInWithUsernameInBackground:self.usernameTextField.text  password:self.passwordTextField.text block:^(PFUser *user, NSError *error) {
+    
+    
+    
+    NSString *username = self.usernameTextField.text;
+    NSString *trimmedUsername = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSString *pass = self.passwordTextField.text;
+    NSString *trimmedPass = [pass stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+
+    
+    //Для регистрации нужен настоящий email!
+    
+    [PFUser logInWithUsernameInBackground:trimmedUsername  password:trimmedPass block:^(PFUser *user, NSError *error) {
         [HUD dismissAnimated:YES];
         if (user) {
             [self performSegueWithIdentifier:@"enterApp" sender:nil];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Такая келинка не найдена" delegate:self
-                                                     cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            
+            if(error.code == kPFErrorUserPasswordMissing){
+//                Келинка, пароль указан неверно!
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                                message:@"Келинка, пароль указан неверно!"
+                                                               delegate:nil
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                                message:@"Такая келинка не найдена"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            
         }
     }];
 }

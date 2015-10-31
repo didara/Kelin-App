@@ -11,6 +11,8 @@
 #import <Parse/Parse.h>
 #import "JGProgressHUD.h"
 #import "AppDelegate.h"
+#import "StoreManager.h"
+
 
 @interface SendSecretViewController ()
 
@@ -35,6 +37,11 @@
     NSString *string = self.textView.text;
     NSString *trimmedString = [string stringByTrimmingCharactersInSet:
                                [NSCharacterSet whitespaceCharacterSet]];
+//    kKAPNicknameIdentifierKey
+    
+    NSString *nick = [[NSUserDefaults standardUserDefaults] objectForKey:kKAPNicknameIdentifierKey];
+    
+
     
     if((!trimmedString) || ([trimmedString length] == 0)){
         UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Oops..."
@@ -47,12 +54,22 @@
         return;
     }
     
+    if(nick){
+        trimmedString = [NSString stringWithFormat:@"%@ %@",trimmedString, nick];
+    }
     
     JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     HUD.textLabel.text = @"Отправляется";
     [HUD showInView:self.view];
     PFObject *secret = [PFObject objectWithClassName:@"Secrets"];
-    secret[@"story"] = self.textView.text;
+    secret[@"story"] = trimmedString;
+    
+    if([[NSUserDefaults standardUserDefaults] boolForKey:kKAPVIPAvatarIdentifierKey]){
+        secret[@"vip"] = @YES;
+    }
+    else {
+        secret[@"vip"] = @NO;
+    }
     
     if([PFUser currentUser]){
         secret[@"user"] = [PFUser currentUser];

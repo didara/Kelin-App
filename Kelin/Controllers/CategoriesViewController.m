@@ -18,6 +18,8 @@
 @property (weak, nonatomic) IBOutlet UIButton *dictionaryButton;
 @property (weak, nonatomic) IBOutlet UIButton *secretsButton;
 
+@property (nonatomic) UIBarButtonItem *leftBarButtonItem;
+
 @end
 
 @implementation CategoriesViewController
@@ -27,12 +29,18 @@
 - (void) viewDidLoad{
     [super viewDidLoad];
     
-//    NSString *visualFormat = @"V:|-64-[_testButton]-0-[_foodButton(_testButton)]-0-[_dictionaryButton(_testButton)]-0-[_secretsButton(_testButton)]-0-|";
-//    
-//    [self.view addConstraints:[NSLayoutConstraint constraintsWithVisualFormat:visualFormat
-//                                                                      options:0
-//                                                                      metrics:nil
-//                                                                        views:NSDictionaryOfVariableBindings(_testButton, _foodButton, _dictionaryButton, _secretsButton)]];
+//    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+//    NSMutableArray *vcs =  [NSMutableArray arrayWithArray:self.navigationController.viewControllers];
+//    [vcs insertObject:controller atIndex:[vcs count]-1];
+//    [self.navigationController setViewControllers:vcs animated:NO];
+    
+    self.leftBarButtonItem = [UIBarButtonItem new];
+    self.leftBarButtonItem.action = @selector(profileButtonDidPress:);
+    self.leftBarButtonItem.target = self;
+    self.leftBarButtonItem.image = [UIImage imageNamed:@"profile_icon"];
+    
+    self.navigationItem.leftBarButtonItem = self.leftBarButtonItem;
+    
 }
 
 - (void)viewWillAppear:(BOOL)animated {
@@ -46,14 +54,30 @@
         [self performSegueWithIdentifier:@"goToAuthorization" sender:nil];
     }];
 }
-- (IBAction)instagramButtonDidPress:(id)sender {
-    NSURL *instaURL = [[NSURL alloc] initWithString:@"instagram://user?username=the_kelin"];
-    
-    if (![[UIApplication sharedApplication] canOpenURL:instaURL] ) {
-        instaURL = [[NSURL alloc] initWithString:@"http://instagram.com/the_kelin"];
-    }
-    
-    [[UIApplication sharedApplication] openURL:instaURL];
-}
+//- (IBAction)instagramButtonDidPress:(id)sender {
+//    NSURL *instaURL = [[NSURL alloc] initWithString:@"instagram://user?username=the_kelin"];
+//    
+//    if (![[UIApplication sharedApplication] canOpenURL:instaURL] ) {
+//        instaURL = [[NSURL alloc] initWithString:@"http://instagram.com/the_kelin"];
+//    }
+//    
+//    [[UIApplication sharedApplication] openURL:instaURL];
+//}
 
+- (void) profileButtonDidPress: (id) sender{
+
+    UIViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"ProfileViewController"];
+    
+    CATransition *transition = [CATransition animation];
+    transition.duration = 0.45;
+    transition.timingFunction = [CAMediaTimingFunction functionWithName:kCAMediaTimingFunctionDefault];
+    transition.type = kCATransitionFromLeft;
+    [transition setType:kCATransitionPush];
+    transition.subtype = kCATransitionFromLeft;
+    transition.delegate = self;
+    [self.navigationController.view.layer addAnimation:transition forKey:nil];
+    
+    self.navigationController.navigationBarHidden = NO;
+    [self.navigationController pushViewController:controller animated:NO];
+}
 @end

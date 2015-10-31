@@ -12,7 +12,7 @@
 #import <Crashlytics/Crashlytics.h>
 #import <UIFont+OpenSans.h>
 #import "UIColor+AYHooks.h"
-#import "REFrostedViewController.h"
+#import "StoreManager.h"
 
 static NSInteger kKAPNumberOfAvailableAvatars = 777;
 
@@ -31,6 +31,7 @@ static NSInteger kKAPNumberOfAvailableAvatars = 777;
                   clientKey:@"sXfRD29PmYcv4SWPAp2eFISYTVQ1RPyPqMDb6Q3q"];
     
     self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];
+    self.window.backgroundColor = [UIColor whiteColor];
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     
     if ([PFUser currentUser]) {
@@ -49,6 +50,14 @@ static NSInteger kKAPNumberOfAvailableAvatars = 777;
     [self.window makeKeyAndVisible];
     
     [self generateRandomAvatar];
+    
+    [[StoreManager sharedManager] startObserving];
+    
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kKelinTopSecretIdentifierKey];
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kKelinNicknamesIdentifierKey];
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kKelinVIPAvatarIdentifierKey];
+//    [[NSUserDefaults standardUserDefaults] setBool:YES forKey:kKAPVIPAvatarIdentifierKey];
+    
     return YES;
 }
 

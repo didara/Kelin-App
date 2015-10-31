@@ -14,6 +14,7 @@
 #import <UIFont+OpenSans.h>
 #import "UIFont+Sizes.h"
 #import "UIImage+AYAdditions.h"
+#import "NSString+Utils.h"
 
 @interface SignUpViewController () <UITextFieldDelegate>
 
@@ -41,18 +42,55 @@
     JGProgressHUD *HUD = [JGProgressHUD progressHUDWithStyle:JGProgressHUDStyleExtraLight];
     HUD.textLabel.text = @"Келiн наливает чай";
     [HUD showInView:self.view];
+
+    
+    NSString *username = self.usernameTextField.text;
+    NSString *trimmedUsername = [username stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    NSString *pass = self.passwordTextField.text;
+    NSString *trimmedPass = [pass stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]];
+    
+    
     PFUser *user = [PFUser user];
-    user.username = self.usernameTextField.text;
+    user.username = trimmedUsername;
     self.passwordTextField.secureTextEntry = YES;
-    user.password = self.passwordTextField.text;
+    user.password = trimmedPass;
+    
+    if (![trimmedUsername validateEmail]) {
+        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                        message:@"Для регистрации нужен настоящий email!"
+                                                       delegate:nil
+                                              cancelButtonTitle:@"OK"
+                                              otherButtonTitles:nil];
+        
+        [alert show];
+        
+        [HUD dismissAnimated:YES];
+        return;
+    }
+    
     [user signUpInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
         [HUD dismissAnimated:YES];
         if (succeeded) {
             [self performSegueWithIdentifier:@"enterApp" sender:nil];
         } else {
-            UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка" message:@"Адрес почты указан неверно"
-                                                              delegate:self cancelButtonTitle:@"OK" otherButtonTitles:nil];
-            [alert show];
+            
+            if(error.code == kPFErrorUsernameTaken){
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                                message:@"Такая келинка уже существует!"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
+            else{
+                UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Ошибка"
+                                                                message:@"Что то пошло не так..."
+                                                               delegate:self
+                                                      cancelButtonTitle:@"OK"
+                                                      otherButtonTitles:nil];
+                [alert show];
+            }
         }
     }];
 }
